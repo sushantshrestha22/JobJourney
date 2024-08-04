@@ -4,7 +4,6 @@ import Login from './component/Login';
 function App() {
   return (
    <>
-   hello
    <Login/>
    </>
   );

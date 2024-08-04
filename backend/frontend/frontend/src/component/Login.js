@@ -1,14 +1,17 @@
 import React from "react";
-import { Container, Form, Image, Button } from "react-bootstrap";
+import { Container, Form, Image, Button, Row, Col } from "react-bootstrap";
 import Imag from "../image/image1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 
 export default function Login() {
   return (
-    <Container fluid="md" class=" d-flex ">
+    <Container fluid="md" class="d-flex ">
+      <Row>
+        <Col>
       <Image src={Imag} alt="" class="w-50"></Image>
-      <Container fluid class="w-50">
+        </Col>
+        <Col>
         <h1 class="text-primary hello">Jobjourney</h1>
         <h3>cheers !!! to the new start</h3>
         <hr></hr>
@@ -27,7 +30,10 @@ export default function Login() {
         <Form.Text>
           Don’t have account? <a href="#login">Register? </a>
         </Form.Text>
-      </Container>
+    
+        </Col>
+      </Row>
+     
     </Container>
   );
 }
