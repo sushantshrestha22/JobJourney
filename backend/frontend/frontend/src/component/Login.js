@@ -3,6 +3,7 @@ import { Container, Form, Image, Button, Row, Col } from "react-bootstrap";
 import Imag from "../image/image1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -26,14 +27,15 @@ export default function Login() {
             <Form.Control name="password" id="password"></Form.Control>
           </Form.Group>
         </Form>
-        <Button type="submit">login</Button>
+        <Link to="/home"><Button type="submit">Login</Button></Link>
         <Form.Text>
-          Don’t have account? <a href="#login">Register? </a>
+          Don’t have account? <Link to='/register'>Register?</Link>
         </Form.Text>
     
         </Col>
       </Row>
      
+      <Outlet/>
     </Container>
   );
 }
