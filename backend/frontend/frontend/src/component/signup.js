@@ -36,22 +36,11 @@ export default function Register() {
           <Row>
             <Form
               method="POST"
-              action=""
+              action="http://127.0.0.1:8000/register/"
               onSubmit={handleSubmit}
               noValidate
               validated={validated}
             >
-              <Row>
-                <Form.Group>
-                  <Form.Label for="username">Username</Form.Label>
-                  <Form.Control
-                    name="username"
-                    id="username"
-                    type="text"
-                    required
-                  ></Form.Control>
-                </Form.Group>
-              </Row>
               <Row className="mt-2">
                 <Form.Group>
                   <Form.Label for="email">Email</Form.Label>

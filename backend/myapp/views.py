@@ -12,26 +12,24 @@ def index(request):
 #register logic
 def register(request):
     if request.method=='POST':
-        username=request.POST['username']
-        email=request.POST['email']
-        password=request.POST['password']
-        confirm=request.POST['confirm']
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+        confirm=request.POST.get('confirm')
+
         if confirm==password:
-            if User.objects.filter(email=email).exits():
-                messages.info(request,"Email Already Exits")
+            if User.objects.filter(email=email).exists():
+                messages.info(request,"Email Already Exists")
                 return redirect('register')
-            elif User.objects.filter(username=username):
-                messages.info(request,'Username already exits')
-                return redirect('register')
+            
             else:
-                user=User.objects.create_user(username=username,email=email,password=password)
+                user=User.objects.create_user(username=email,password=password)
                 user.save()
                 return redirect('/')
         else:
             messages.info(request,'Password not same')
-            return redirect('register')
+            return redirect('/register')
     else:
-        return render(request,'register')
+        return render(request,'/register')
 
 
 
@@ -46,7 +44,7 @@ def home(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Login successful!')
-            return redirect('mainpage')  # Redirect to the desired page after login
+            return redirect('/mainpage')  # Redirect to the desired page after login
         else:
             messages.info(request, 'Invalid credentials')
             return redirect('/')  # Redirect to the login page on failure
