@@ -10,32 +10,31 @@ export default function Login() {
     <Container fluid="md" class="d-flex ">
       <Row>
         <Col>
-      <Image src={Imag} alt="" class="w-50"></Image>
+          <Image src={Imag} alt="" class="w-50"></Image>
         </Col>
         <Col>
-        <h1 class="text-primary hello">Jobjourney</h1>
-        <h3>cheers !!! to the new start</h3>
-        <hr></hr>
-        <Form method="POST" action="login">
-          <Form.Group>
-            <Form.Label for="email">Email</Form.Label>
-            <Form.Control name="email" id="email"></Form.Control>
-          </Form.Group>
+          <h1 class="text-primary hello">Jobjourney</h1>
+          <h3>cheers !!! to the new start</h3>
+          <hr></hr>
+          <Form method="POST" action="http://127.0.0.1:8000/home/">
+            <Form.Group>
+              <Form.Label for="email">Email</Form.Label>
+              <Form.Control name="email" id="email"></Form.Control>
+            </Form.Group>
 
-          <Form.Group>
-            <Form.Label for="password">Password</Form.Label>
-            <Form.Control name="password" id="password"></Form.Control>
-          </Form.Group>
-        </Form>
-        <Link to="/home"><Button type="submit">Login</Button></Link>
-        <Form.Text>
-          Don’t have account? <Link to='/register'>Register?</Link>
-        </Form.Text>
-    
+            <Form.Group>
+              <Form.Label for="password">Password</Form.Label>
+              <Form.Control name="password" id="password"></Form.Control>
+            </Form.Group>
+            <Button type="submit">Login</Button>
+            <Form.Text>
+              Don’t have account? <Link to="/register">Register?</Link>
+            </Form.Text>
+          </Form>
         </Col>
       </Row>
-     
-      <Outlet/>
+
+      <Outlet />
     </Container>
   );
 }
