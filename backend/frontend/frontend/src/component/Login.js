@@ -25,14 +25,14 @@ export default function Login() {
               <Row>
                 <Form.Group>
                   <Form.Label for="email">Email</Form.Label>
-                  <Form.Control name="email" id="email"></Form.Control>
+                  <Form.Control name="email" id="email" type="email" required></Form.Control>
                 </Form.Group>
               </Row>
 
               <Row className="mt-2">
                 <Form.Group>
                   <Form.Label for="password">Password</Form.Label>
-                  <Form.Control name="password" id="password"></Form.Control>
+                  <Form.Control name="password" id="password" type="password" required></Form.Control>
                 </Form.Group>
               </Row>
 
