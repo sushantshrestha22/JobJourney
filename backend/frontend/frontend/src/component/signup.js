@@ -34,7 +34,13 @@ export default function Register() {
           </Row>
           <hr />
           <Row>
-            <Form method="POST" action="" onSubmit={handleSubmit} noValidate validated={validated}>
+            <Form
+              method="POST"
+              action=""
+              onSubmit={handleSubmit}
+              noValidate
+              validated={validated}
+            >
               <Row>
                 <Form.Group>
                   <Form.Label for="username">Username</Form.Label>
@@ -86,10 +92,10 @@ export default function Register() {
                   </Form.Control.Feedback>
                 </Form.Group>
               </Row>
-                  <Button type="submit" className="w-100 mt-3">
-                    Signup
-                  </Button>
-                
+              <Button type="submit" className="w-100 mt-3">
+                Signup
+              </Button>
+
               <Row className="mt-3">
                 <Form.Text>
                   Don’t have account? <Link to="/">Login?</Link>
