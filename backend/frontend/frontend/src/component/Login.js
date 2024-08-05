@@ -25,25 +25,38 @@ export default function Login() {
               <Row>
                 <Form.Group>
                   <Form.Label for="email">Email</Form.Label>
-                  <Form.Control name="email" id="email" type="email" required></Form.Control>
+                  <Form.Control
+                    name="email"
+                    id="email"
+                    type="email"
+                    required
+                  ></Form.Control>
                 </Form.Group>
               </Row>
 
               <Row className="mt-2">
                 <Form.Group>
                   <Form.Label for="password">Password</Form.Label>
-                  <Form.Control name="password" id="password" type="password" required></Form.Control>
+                  <Form.Control
+                    name="password"
+                    id="password"
+                    type="password"
+                    required
+                  ></Form.Control>
                 </Form.Group>
               </Row>
 
-              <Row >
+              <Row>
                 <Col>
-                  <Button type="submit" className="w-100 mt-3">Login</Button>
+                  <Button type="submit" className="w-100 mt-3">
+                    Login
+                  </Button>
                 </Col>
               </Row>
               <Row className="mt-3">
-                  <Form.Text>Don’t have account? <Link to="/register">Register?</Link></Form.Text>
-                  
+                <Form.Text>
+                  Don’t have account? <Link to="/register">Register?</Link>
+                </Form.Text>
               </Row>
             </Form>
           </Row>
