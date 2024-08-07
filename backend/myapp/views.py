@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import UserLogin
+from django.http import JsonResponse
 
 # Create your views here.
 
 def index(request):
-    return render(request,'index.html') #to render index.html in frontend
+    return render(request,'index.html') #to render index.html from frontend
 
 #register logic
 def register(request):
@@ -27,9 +28,9 @@ def register(request):
                 return redirect('/')
         else:
             messages.info(request,'Password not same')
-            return redirect('/register')
+            return redirect('register')
     else:
-        return render(request,'/register')
+        return redirect('/register')
 
 
 
@@ -40,19 +41,20 @@ def home(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = auth.authenticate(username=email, password=password)
-        
         if user is not None:
             auth.login(request, user)
-            messages.success(request, 'Login successful!')
             return redirect('/mainpage')  # Redirect to the desired page after login
         else:
-            messages.info(request, 'Invalid credentials')
-            return redirect('/')  # Redirect to the login page on failure
+           return render(request, '/') # Redirect to the login page on failure
     else:
         return render(request, '/')  # Render the login template for GET request
 
 
-
+def go(request):
+    data={
+        'message':'Invalid Credentials'
+    }
+    return JsonResponse(data) 
 
 def mainpage(request):
     return HttpResponse("MainPage")
