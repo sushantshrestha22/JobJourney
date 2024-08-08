@@ -30,8 +30,7 @@ def register(request):
             data={
                 'error':'Password are not same'
             }
-            return JsonResponse(data)
-            
+            return JsonResponse(data)       
     else:
         return redirect('/register')
 

@@ -6,19 +6,19 @@ import "../App.css";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Login() {
-  const [data, setData] = useState({ message: "" });
-  const [clicked, setClicked] = useState(false);
+  // const [data, setData] = useState({ message: "" });
+  // const [clicked, setClicked] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setClicked(true);
-  };
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/go/")
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   setClicked(true);
+  // };
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:8000/api/go/")
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // }, []);
 
   return (
     <Container fluid="md" class="d-flex ">
@@ -28,9 +28,6 @@ export default function Login() {
         </Col>
         <Col className="d-flex flex-column justify-content-center">
           <Row>
-            {clicked && data.message && (
-              <h3 className="text-danger">{data.message}</h3>
-            )}
             <h1 class="text-primary hello">Jobjourney</h1>
           </Row>
           <Row>
@@ -38,11 +35,7 @@ export default function Login() {
           </Row>
           <hr />
           <Row>
-            <Form
-              method="POST"
-              action="http://127.0.0.1:8000/home/"
-              onSubmit={handleSubmit}
-            >
+            <Form method="POST" action="http://127.0.0.1:8000/home/">
               <Row>
                 <Form.Group>
                   <Form.Label for="email">Email</Form.Label>
