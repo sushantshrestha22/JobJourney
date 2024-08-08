@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Form, Image, Button, Row, Col } from "react-bootstrap";
 import Imag from "../image/image1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,7 +23,7 @@ export default function Register() {
     });
   };
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const newErrors = validateForm(formData);
     seterrors(newErrors);
 
@@ -74,7 +74,7 @@ export default function Register() {
             <Form
               method="POST"
               onSubmit={handleSubmit}
-              action="http://127.0.0.1:8000/register"
+              action="http://127.0.0.1:8000/register/"
             >
               <Row className="mt-2">
                 {/* <Form.Group>

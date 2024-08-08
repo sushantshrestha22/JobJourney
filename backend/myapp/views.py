@@ -12,7 +12,7 @@ def index(request):
 
 #register logic
 def register(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         email=request.POST.get('email')
         password=request.POST.get('password')
         confirm=request.POST.get('confirm')
@@ -20,15 +20,18 @@ def register(request):
         if confirm==password:
             if User.objects.filter(email=email).exists():
                 messages.info(request,"Email Already Exists")
-                return redirect('register')
+                return redirect('/')
             
             else:
                 user=User.objects.create_user(username=email,password=password)
                 user.save()
                 return redirect('/')
         else:
-            messages.info(request,'Password not same')
-            return redirect('register')
+            data={
+                'error':'Password are not same'
+            }
+            return JsonResponse(data)
+            
     else:
         return redirect('/register')
 
@@ -45,14 +48,18 @@ def home(request):
             auth.login(request, user)
             return redirect('/mainpage')  # Redirect to the desired page after login
         else:
-           return render(request, '/') # Redirect to the login page on failure
+           data={
+               'message':'Invalid Credential'
+           }
+           return JsonResponse(data)# Redirect to the login page on failure
     else:
         return render(request, '/')  # Render the login template for GET request
 
 
 def go(request):
     data={
-        'message':'Invalid Credentials'
+        'message':'Invalid Credentials Please Register!!',
+        'error':'Password are not same'
     }
     return JsonResponse(data) 
 
