@@ -9,11 +9,11 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="home" element={<Home/>} />
+          <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/register" element={<Register />} />
         </Routes>

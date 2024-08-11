@@ -7,6 +7,8 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     # re_path(r'^.*$', views.index, name='index'),
     path('api/go/',views.go,name='go'),
-    path('mainpage/',views.mainpage,name='mainpage')
+    path('mainpage/',views.mainpage,name='mainpage'),
+    
+
    
 ]
