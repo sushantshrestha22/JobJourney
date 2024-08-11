@@ -5,6 +5,8 @@ import Footer from "./footer";
 import { MdArtTrack } from "react-icons/md";
 import { BiSolidDetail } from "react-icons/bi";
 import { GrResources } from "react-icons/gr";
+import Navbar from "./Navbar";
+
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -23,6 +25,8 @@ export default function Home() {
 
   return (
     <div className="w-screen">
+        <Navbar/>
+
       <div className="flex w-screen bg-[#0F172A] items-center gap-[10%] h-[92vh]">
         <div className="w-[50%] ml-[10%]  xl:ml-[100px]">
           <div className=" ">
