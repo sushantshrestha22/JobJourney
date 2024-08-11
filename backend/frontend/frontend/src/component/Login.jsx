@@ -1,12 +1,25 @@
-import React from "react";
-import { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { Container, Form, Image, Button, Row, Col } from "react-bootstrap";
 import Imag from "../image/image1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import { Link, Outlet } from "react-router-dom";
 
-export default function Register() {
+export default function Login() {
+  // const [data, setData] = useState({ message: "" });
+  // const [clicked, setClicked] = useState(false);
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   setClicked(true);
+  // };
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:8000/api/go/")
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // }, []);
+
   return (
     <Container fluid="md" class="d-flex ">
       <Row>
@@ -22,17 +35,8 @@ export default function Register() {
           </Row>
           <hr />
           <Row>
-            <Form method="POST" action="http://127.0.0.1:8000/register/">
-              <Row className="mt-2">
-                {/* <Form.Group>
-                  <Form.Label for="username">Username</Form.Label>
-                  <Form.Control
-                    name="username"
-                    id="username"
-                    type="text"
-                    required
-                  ></Form.Control>
-                </Form.Group> */}
+            <Form method="POST" action="http://127.0.0.1:8000/home/">
+              <Row>
                 <Form.Group>
                   <Form.Label for="email">Email</Form.Label>
                   <Form.Control
@@ -55,24 +59,17 @@ export default function Register() {
                   ></Form.Control>
                 </Form.Group>
               </Row>
-              <Row className="mt-2">
-                <Form.Group>
-                  <Form.Label for="confirm">Confirm Password</Form.Label>
-                  <Form.Control
-                    name="confirm"
-                    id="confirm"
-                    type="password"
-                    required
-                  ></Form.Control>
-                </Form.Group>
-              </Row>
-              <Button type="submit" className="w-100 mt-3">
-                Signup
-              </Button>
 
+              <Row>
+                <Col>
+                  <Button type="submit" className="w-100 mt-3">
+                    Login
+                  </Button>
+                </Col>
+              </Row>
               <Row className="mt-3">
                 <Form.Text>
-                  Don’t have account? <Link to="/">Login?</Link>
+                  Don’t have account? <Link to="/register">Register?</Link>
                 </Form.Text>
               </Row>
             </Form>
