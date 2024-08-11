@@ -55,6 +55,7 @@ def home(request):
         return render(request, '/')  # Render the login template for GET request
 
 
+# api defined here
 def go(request):
     data={
         'message':'Invalid Credentials Please Register!!',
@@ -62,13 +63,7 @@ def go(request):
     }
     return JsonResponse(data) 
 
-def mainpage(request):
-    return HttpResponse("MainPage")
 
 
 
-# def register(request):
 
-
-# def login(request):
-#     
