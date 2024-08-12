@@ -45,16 +45,17 @@ def home(request):
         user = auth.authenticate(username=email, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('/mainpage')  # Redirect to the desired page after login
+            return redirect('/home')  # Redirect to the desired page after login
         else:
-           data={
-               'message':'Invalid Credential'
-           }
-           return JsonResponse(data)# Redirect to the login page on failure
+        #    data={
+        #        'message':'Invalid Credential'
+        #    }
+           return redirect('/')# Redirect to the login page on failure
     else:
         return render(request, '/')  # Render the login template for GET request
 
 
+# api defined here
 def go(request):
     data={
         'message':'Invalid Credentials Please Register!!',
@@ -62,11 +63,7 @@ def go(request):
     }
     return JsonResponse(data) 
 
-def mainpage(request):
-    return HttpResponse("MainPage")
-
-# def register(request):
 
 
-# def login(request):
-#     
+
+

@@ -18,9 +18,23 @@ export default function Home() {
     }
   });
   const card = [
-    { logo: <MdArtTrack className="h-[80px] w-[80px]"/>, title: "Jobtracking", detail: "Stay organized and in control of your job search with our job application tracker." },
-    { logo: <GrResources className="h-[60px] w-[60px]"/>, title: "Resource", detail: "Enhance your skills and advance your career with our curated courses." },
-    { logo: <BiSolidDetail className="h-[60px] w-[60px]"/>, title: "Resume", detail: "Craft professional resumes in minutes with our resume builder." },
+    {
+      logo: <MdArtTrack className="h-[80px] w-[80px]" />,
+      title: "Jobtracking",
+      detail:
+        "Stay organized and in control of your job search with our job application tracker.",
+    },
+    {
+      logo: <GrResources className="h-[60px] w-[60px]" />,
+      title: "Resource",
+      detail:
+        "Enhance your skills and advance your career with our curated courses.",
+    },
+    {
+      logo: <BiSolidDetail className="h-[60px] w-[60px]" />,
+      title: "Resume",
+      detail: "Craft professional resumes in minutes with our resume builder.",
+    },
   ];
 
   return (
@@ -57,10 +71,11 @@ export default function Home() {
           <img
             src={Home_Img}
             alt="error"
-            className="  lg:h-[500px] lg:w-[500px]"
+            className="  lg:h-[400px] lg:w-[400px]"
           ></img>
         </div>
       </div>
+<<<<<<< HEAD
       <div className="bg-white flex justify-center gap-[50px] h-[50vh] items-center">
 
       {card.map((data) => {
@@ -72,6 +87,20 @@ export default function Home() {
           </div>
         );
       })}
+=======
+      <div className="bg-blue-200 flex justify-center gap-[50px] h-[50vh] items-center">
+        {card.map((data) => {
+          return (
+            <div className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
+              <div className="">{data.logo}</div>
+              <div className="text-xl font-bold text-white">{data.title}</div>
+              <div className="text-white text-lg text-center">
+                {data.detail}
+              </div>
+            </div>
+          );
+        })}
+>>>>>>> origin/main
       </div>
 
       <Footer />

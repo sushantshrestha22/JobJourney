@@ -12,13 +12,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
+<<<<<<< HEAD
           <Route path="/home" element={<Home/>} />
           <Route path="/jobpost" element={<JobPost  />} />
+=======
+          <Route path="/home" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+>>>>>>> origin/main
           <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </>
   );
 }
-
 export default App;

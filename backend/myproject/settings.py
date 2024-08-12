@@ -42,9 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 ]
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Adjust port as necessary
-]
+CORS_ORIGIN_ALLOW_ALL=True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,8 +84,12 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'jobjourney',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
