@@ -75,7 +75,6 @@ export default function Home() {
           ></img>
         </div>
       </div>
-<<<<<<< HEAD
       <div className="bg-white flex justify-center gap-[50px] h-[50vh] items-center">
 
       {card.map((data) => {
@@ -87,20 +86,6 @@ export default function Home() {
           </div>
         );
       })}
-=======
-      <div className="bg-blue-200 flex justify-center gap-[50px] h-[50vh] items-center">
-        {card.map((data) => {
-          return (
-            <div className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
-              <div className="">{data.logo}</div>
-              <div className="text-xl font-bold text-white">{data.title}</div>
-              <div className="text-white text-lg text-center">
-                {data.detail}
-              </div>
-            </div>
-          );
-        })}
->>>>>>> origin/main
       </div>
 
       <Footer />

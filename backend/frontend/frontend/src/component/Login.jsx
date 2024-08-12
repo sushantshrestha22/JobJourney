@@ -1,4 +1,4 @@
-// import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Form, Image, Button, Row, Col } from "react-bootstrap";
 import Imag from "../image/image1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,19 +6,26 @@ import "../App.css";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Login() {
-  // const [data, setData] = useState({ message: "" });
-  // const [clicked, setClicked] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   setClicked(true);
-  // };
-  // useEffect(() => {
-  //   fetch("http://127.0.0.1:8000/api/go/")
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const response = await fetch("http://127.0.0.1:8000/home/", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      window.location.href = data.redirect_url; // Redirect on successful login
+    } else {
+      setErrorMessage(data.message); // Set error message
+    }
+  };
 
   return (
     <Container fluid="md" class="d-flex ">
@@ -34,8 +41,16 @@ export default function Login() {
             <h3>Cheers !!! to the new start</h3>
           </Row>
           <hr />
+          {errorMessage && (
+            <Row>
+              <Col>
+                <div className="alert alert-danger">{errorMessage}</div>
+              </Col>
+            </Row>
+          )}
+          {/* action="http://127.0.0.1:8000/home/" */}
           <Row>
-            <Form method="POST" action="http://127.0.0.1:8000/home/">
+            <Form method="POST" onSubmit={handleSubmit}>
               <Row>
                 <Form.Group>
                   <Form.Label for="email">Email</Form.Label>

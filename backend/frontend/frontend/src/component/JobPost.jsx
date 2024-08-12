@@ -7,12 +7,15 @@ export default function JobPost() {
     <div className="w-screen bg-[#0F172A]">
       <Navbar />
       <div className="mt-5  flex justify-center">
-        <form action="" className="bg-white py-[5vh] w-[70%] px-[50px]">
+        <form
+          action="http://127.0.0.1:8000/JobPost"
+          className="bg-white py-[5vh] w-[70%] px-[50px]"
+        >
           <div className="flex justify-center text-[#0F172A] lg:text-3xl sm:text-2xl font-bold ">
             Post for Job
           </div>
           <div>
-            <div className=" text-[#0F172A] text-xl mt-5">
+            <div className=" text-[#0F172A] text-xl mt-5 font-bold">
               Tell Us About Your Job
               <hr></hr>
             </div>
@@ -24,8 +27,8 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="jobname"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your job title"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job title"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -35,8 +38,8 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="location"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your address"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your address"
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -46,8 +49,8 @@ export default function JobPost() {
                 <textarea
                   type="text"
                   id="description"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your job description"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job description"
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -57,14 +60,14 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="salary"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your job salary"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job salary"
                 />
               </div>
             </div>
           </div>
           <div>
-            <div className=" text-[#0F172A] text-xl mt-5">
+            <div className=" text-[#0F172A] text-xl mt-5 font-bold">
               What Are The Job Requirement?
               <hr></hr>
             </div>
@@ -76,8 +79,8 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="experience"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your experience level"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your experience level"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -87,8 +90,8 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="skill"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your skills"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your skills"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -98,19 +101,8 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="language"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your languages"
-                />
-              </div>
-              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3 ">
-                <label htmlFor="project">
-                  Project<sup className="">(optional)</sup>
-                </label>
-                <input
-                  type="file"
-                  id="project"
-                  className=" bg-[#0F172A] border-none text-white text-sm py-2 px-4  rounded outline-none"
-                  placeholder="enter your projects"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your languages"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -120,8 +112,8 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="jobtype"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4 rounded outline-none"
-                  placeholder="enter your job type"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job type"
                 />
               </div>
             </div>
