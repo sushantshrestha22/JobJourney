@@ -61,7 +61,7 @@ export default function Home() {
           ></img>
         </div>
       </div>
-      <div className="bg-blue-200 flex justify-center gap-[50px] h-[50vh] items-center">
+      <div className="bg-white flex justify-center gap-[50px] h-[50vh] items-center">
 
       {card.map((data) => {
         return (
