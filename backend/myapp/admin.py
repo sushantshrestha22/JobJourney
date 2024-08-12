@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserLogin
+from .models import Jobpost
 
 # Register your models here.
-admin.site.register(UserLogin)
+admin.site.register(Jobpost)

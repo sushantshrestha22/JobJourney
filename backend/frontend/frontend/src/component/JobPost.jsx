@@ -8,7 +8,8 @@ export default function JobPost() {
       <Navbar />
       <div className="mt-5  flex justify-center">
         <form
-          action="http://127.0.0.1:8000/JobPost"
+          method="POST"
+          action="http://127.0.0.1:8000/JobPost/"
           className="bg-white py-[5vh] w-[70%] px-[50px]"
         >
           <div className="flex justify-center text-[#0F172A] lg:text-3xl sm:text-2xl font-bold ">
@@ -27,6 +28,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="jobname"
+                  name="jobname"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job title"
                 />
@@ -38,6 +40,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="location"
+                  name="location"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your address"
                 />
@@ -49,6 +52,7 @@ export default function JobPost() {
                 <textarea
                   type="text"
                   id="description"
+                  name="description"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job description"
                 />
@@ -60,6 +64,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="salary"
+                  name="salary"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job salary"
                 />
@@ -79,6 +84,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="experience"
+                  name="experience"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your experience level"
                 />
@@ -90,6 +96,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="skill"
+                  name="skill"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your skills"
                 />
@@ -101,6 +108,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="language"
+                  name="language"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your languages"
                 />
@@ -112,6 +120,7 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="jobtype"
+                  name="jobtype"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job type"
                 />
@@ -120,7 +129,7 @@ export default function JobPost() {
           </div>
           <div className="flex justify-end">
             <button
-              type="button"
+              type="submit"
               className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
             >
               Add Post

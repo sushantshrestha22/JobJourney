@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import UserLogin
+from .models import Jobpost
 from django.http import JsonResponse
 
 # Create your views here.
@@ -50,7 +50,29 @@ def home(request):
 
 #JobPost logic goes here
 def JobPost(request):
-    pass
+    if request.method == 'POST':
+        job_name = request.POST.get('jobname')
+        location = request.POST.get('location')
+        description = request.POST.get('description')
+        salary = request.POST.get('salary')
+        experience_level = request.POST.get('experience')
+        skills = request.POST.get('skill')
+        language = request.POST.get('language')
+        job_type = request.POST.get('jobtype')
+
+        job_post=Jobpost(
+            job_name=job_name,
+            location=location,
+            description=description,
+            salary=salary,
+            experience_level=experience_level,
+            skills=skills,
+            language=language,
+            job_type=job_type)
+        job_post.save()
+        return redirect('/home')
+    else:
+        return redirect('/')
 
 
 
