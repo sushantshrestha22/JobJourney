@@ -7,12 +7,16 @@ export default function JobPost() {
     <div className="w-screen bg-[#0F172A]">
       <Navbar />
       <div className="mt-5  flex justify-center">
-        <form action="" className="bg-white py-[5vh] w-[70%] px-[50px]">
+        <form
+          method="POST"
+          action="http://127.0.0.1:8000/JobPost/"
+          className="bg-white py-[5vh] w-[70%] px-[50px]"
+        >
           <div className="flex justify-center text-[#0F172A] lg:text-3xl sm:text-2xl font-bold ">
             Post for Job
           </div>
           <div>
-            <div className=" text-[#0F172A] text-xl mt-5">
+            <div className=" text-[#0F172A] text-xl mt-5 font-bold">
               Tell Us About Your Job
               <hr></hr>
             </div>
@@ -24,8 +28,9 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="jobname"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your job title"
+                  name="jobname"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job title"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -35,8 +40,9 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="location"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your address"
+                  name="location"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your address"
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -46,8 +52,9 @@ export default function JobPost() {
                 <textarea
                   type="text"
                   id="description"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your job description"
+                  name="description"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job description"
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -57,14 +64,15 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="salary"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your job salary"
+                  name="salary"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job salary"
                 />
               </div>
             </div>
           </div>
           <div>
-            <div className=" text-[#0F172A] text-xl mt-5">
+            <div className=" text-[#0F172A] text-xl mt-5 font-bold">
               What Are The Job Requirement?
               <hr></hr>
             </div>
@@ -73,22 +81,30 @@ export default function JobPost() {
                 <label htmlFor="experience">
                   Experience level<sup className="text-xl font-bold">*</sup>
                 </label>
-                <input
+                  <select  
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  >
+                  <option value="fresher">Fresher</option>
+                  <option value="1/2 years">1/2 years</option>
+                  <option value="3years">3years</option>
+                </select>
+                {/* <input
                   type="text"
                   id="experience"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your experience level"
-                />
+                  name="experience"
+                  placeholder="Enter your experience level"
+                /> */}
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="skill">
-                  Skills<sup className="text-xl font-bold">*</sup>
+                 Skills <sup className="text-xl font-bold">*</sup>
                 </label>
                 <input
                   type="text"
                   id="skill"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your skills"
+                  name="skill"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your skills"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -98,37 +114,35 @@ export default function JobPost() {
                 <input
                   type="text"
                   id="language"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4  rounded outline-none"
-                  placeholder="enter your languages"
-                />
-              </div>
-              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3 ">
-                <label htmlFor="project">
-                  Project<sup className="">(optional)</sup>
-                </label>
-                <input
-                  type="file"
-                  id="project"
-                  className=" bg-[#0F172A] border-none text-white text-sm py-2 px-4  rounded outline-none"
-                  placeholder="enter your projects"
+                  name="language"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your languages"
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="jobtype">
                   Job Type<sup className="text-xl font-bold">*</sup>
                 </label>
-                <input
+                <select  
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  >
+                  <option value="part-time">Part-time</option>
+                  <option value="full-time">Full-time</option>
+                  <option value="freelance">Freelance</option>
+                </select>
+                {/* <input
                   type="text"
                   id="jobtype"
-                  className=" bg-[#0F172A] border-none text-white py-2 px-4 rounded outline-none"
-                  placeholder="enter your job type"
-                />
+                  name="jobtype"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job type"
+                /> */}
               </div>
             </div>
           </div>
           <div className="flex justify-end">
             <button
-              type="button"
+              type="submit"
               className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
             >
               Add Post

@@ -7,7 +7,6 @@ import { BiSolidDetail } from "react-icons/bi";
 import { GrResources } from "react-icons/gr";
 import Navbar from "./Navbar";
 
-
 export default function Home() {
   const [count, setCount] = useState(0);
 
@@ -17,6 +16,7 @@ export default function Home() {
       setCount(10000);
     }
   });
+  
   const card = [
     {
       logo: <MdArtTrack className="h-[80px] w-[80px]" />,
@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <div className="w-screen">
-        <Navbar/>
+      <Navbar />
 
       <div className="flex w-screen bg-[#0F172A] items-center gap-[10%] h-[92vh]">
         <div className="w-[50%] ml-[10%]  xl:ml-[100px]">
@@ -76,16 +76,17 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-white flex justify-center gap-[50px] h-[50vh] items-center">
-
-      {card.map((data) => {
-        return (
-          <div className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
-            <div className="">{data.logo}</div>
-            <div className="text-xl font-bold text-white">{data.title}</div>
-            <div className="text-white text-lg text-center">{data.detail}</div>
-          </div>
-        );
-      })}
+        {card.map((data) => {
+          return (
+            <div className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
+              <div className="">{data.logo}</div>
+              <div className="text-xl font-bold text-white">{data.title}</div>
+              <div className="text-white text-lg text-center">
+                {data.detail}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <Footer />
