@@ -31,6 +31,7 @@ export default function JobPost() {
                   name="jobname"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job title"
+                  required
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -43,6 +44,7 @@ export default function JobPost() {
                   name="location"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your address"
+                  required
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -55,6 +57,7 @@ export default function JobPost() {
                   name="description"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job description"
+                  required
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -67,6 +70,7 @@ export default function JobPost() {
                   name="salary"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job salary"
+                  required
                 />
               </div>
             </div>
@@ -105,6 +109,7 @@ export default function JobPost() {
                   name="skill"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your skills"
+                  required
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -117,6 +122,7 @@ export default function JobPost() {
                   name="language"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your languages"
+                  required
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">

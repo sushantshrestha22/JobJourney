@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Home_Img from "../image/home.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 import { MdArtTrack } from "react-icons/md";
 import { BiSolidDetail } from "react-icons/bi";
 import { GrResources } from "react-icons/gr";
@@ -64,7 +65,9 @@ export default function Home() {
             type="button"
             className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
           >
+            <Link to="/jobSearch" className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold text-decoration-none">
             Search Job
+            </Link>
           </button>
         </div>
         <div className="lg:w-[40%]  flex items-center ">

@@ -9,7 +9,6 @@ import JobSearch from "./component/JobSearch";
 function App() {
   return (
     <>
-    <JobSearch/>
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -17,7 +16,7 @@ function App() {
           <Route path="/home" element={<Home/>} />
           <Route path="/jobpost" element={<JobPost  />} />
           <Route path="/resume" element={<Resume/>} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/jobSearch" element={<JobSearch />} />
         </Routes>
       </Router>
     </>

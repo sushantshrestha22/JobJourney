@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const JobSearch = () => {
   const [myData, setMyData] = useState([]);
@@ -12,12 +13,45 @@ const JobSearch = () => {
   }, []);
 
   return (
-    <div className="bg-[#0F172A] flex justify-center box-border">
-      <div className="bg-white w-[80%] grid grid-cols-3 gap-5 px-[30px] ">
+    <div className="bg-[#0F172A] flex flex-col items-center justify-center box-border">
+      <Navbar/>
+      <div className="w-[80%] p-4 grid grid-cols-4 gap-4">
+        <select className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none">
+          <option value="part-time">Part-time</option>
+          <option value="full-time">Full-time</option>
+          <option value="freelance">Freelance</option>
+        </select>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+          placeholder="enter location"
+          required
+        />
+        <input
+          type="text"
+          id="skill"
+          name="skill"
+          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+          placeholder="enter skills"
+          required
+        />
+         <button
+              type="submit"
+              className=" text-lg rounded bg-blue-200 border-none py-1 px-4 text-[#0F172A] font-semibold"
+            >
+             search
+            </button>
+      </div>
+      <div className="bg-white w-[80%] grid grid-cols-3 gap-5 p-[30px] ">
         {myData.map((post) => {
           const { firstName, lastName, age, gender, id } = post;
           return (
-            <div key={id} className="container  bg-white flex w-[80%] justify-evenly">
+            <div
+              key={id}
+              className="container flex w-[80%] justify-evenly"
+            >
               <div className="bg-white rounded-md border border-2 border-black w-[350px] h-[40hv] p-3 text-white ">
                 <div className="px-[10px] rounded bg-[#0F172A] h-[30vh] flex flex-col justify-center gap-[20px] ">
                   <div className="flex ">
