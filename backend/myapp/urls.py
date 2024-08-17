@@ -5,9 +5,9 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('home/',views.home,name='home'),
     path('register/',views.register,name='register'),
-    path('JobPost/',views.JobPost,name='JobPost'),
+    path('jobpost/',views.Jobp,name='Jobp'),
     # re_path(r'^.*$', views.index, name='index'),
-    # path('api/go/',views.go,name='go'),
+    path('api/job/',views.job_list,name='job_list'),
 
     
 

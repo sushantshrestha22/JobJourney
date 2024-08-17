@@ -9,7 +9,7 @@ export default function JobPost() {
       <div className="mt-5  flex justify-center">
         <form
           method="POST"
-          action="http://127.0.0.1:8000/JobPost/"
+          action="http://127.0.0.1:8000/jobpost/"
           className="bg-white py-[5vh] w-[70%] px-[50px]"
         >
           <div className="flex justify-center text-[#0F172A] lg:text-3xl sm:text-2xl font-bold ">
@@ -69,7 +69,7 @@ export default function JobPost() {
                   id="salary"
                   name="salary"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  placeholder="Enter your job salary"
+                  placeholder="Job salary in multiple of 1000"
                   required
                 />
               </div>

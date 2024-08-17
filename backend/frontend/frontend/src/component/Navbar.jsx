@@ -14,16 +14,16 @@ export default function Navbar() {
         <NavLink to="/home" className="no-underline text-white">
           Home
         </NavLink>
-        <NavLink to="/Resume" className="no-underline text-white">
+        <NavLink to="/resume" className="no-underline text-white">
           Resume
         </NavLink>
-        <NavLink to="/JobPost" className="no-underline text-white">
+        <NavLink to="/jobpost" className="no-underline text-white">
           JobPost
         </NavLink>
-        <NavLink to="/Resource" className="no-underline text-white">
+        <NavLink to="/resource" className="no-underline text-white">
           Resource
         </NavLink>
-        <NavLink to="/Jobtracking" className="no-underline text-white">
+        <NavLink to="/jobtracking" className="no-underline text-white">
           Jobtracking
         </NavLink>
       </div>
