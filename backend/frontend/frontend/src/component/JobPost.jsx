@@ -22,8 +22,21 @@ export default function JobPost() {
             </div>
             <div className="grid grid-cols-2 gap-10 mt-4 ">
               <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
+                <label htmlFor="companyname">
+                  Company Name<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="text"
+                  id="companyname"
+                  name="companyname"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job title"
+                  required
+                />
+                </div>
+              <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
                 <label htmlFor="jobname">
-                  Job Name<sup className="text-xl font-bold">*</sup>
+                  Job Title<sup className="text-xl font-bold">*</sup>
                 </label>
                 <input
                   type="text"
@@ -48,6 +61,19 @@ export default function JobPost() {
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
+                <label htmlFor="salary">
+                  Salary<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="number"
+                  id="salary"
+                  name="salary"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your job salary"
+                  required
+                />
+              </div>
+              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
                 <label htmlFor="description">
                   Description<sup className="text-xl font-bold">*</sup>
                 </label>
@@ -60,19 +86,7 @@ export default function JobPost() {
                   required
                 />
               </div>
-              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
-                <label htmlFor="salary">
-                  Salary<sup className="text-xl font-bold">*</sup>
-                </label>
-                <input
-                  type="text"
-                  id="salary"
-                  name="salary"
-                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  placeholder="Enter your job salary"
-                  required
-                />
-              </div>
+             
             </div>
           </div>
           <div>
@@ -87,8 +101,9 @@ export default function JobPost() {
                 </label>
                   <select  
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  name="experience"
                   >
-                  <option value="fresher">Fresher</option>
+                  <option value="fresher" selected>Fresher</option>
                   <option value="1/2 years">1/2 years</option>
                   <option value="3years">3years</option>
                 </select>
@@ -122,17 +137,17 @@ export default function JobPost() {
                   name="language"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your languages"
-                  required
+                 
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="jobtype">
                   Job Type<sup className="text-xl font-bold">*</sup>
                 </label>
-                <select  
+                <select  name="jobtype"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   >
-                  <option value="part-time">Part-time</option>
+                  <option value="part-time" selected>Part-time</option>
                   <option value="full-time">Full-time</option>
                   <option value="freelance">Freelance</option>
                 </select>
