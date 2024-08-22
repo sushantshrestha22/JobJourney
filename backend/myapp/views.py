@@ -4,6 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import Jobpost
 from django.http import JsonResponse
+from .algorithm import *
 
 # Create your views here.
 
@@ -45,7 +46,7 @@ def home(request):
         else:
            return JsonResponse({'success': False, 'message':'Invalid Credentials!!'}) # Redirect to the login page on failure
     else:
-        return redirect('/')  # Render the login template for GET request
+        return redirect('/home')  # Render the login template for GET request
 
 
 #JobPost logic goes here
@@ -81,8 +82,69 @@ def Jobp(request):
 def job_list(request):
     jobs=Jobpost.objects.all().values()
     job_list=list(jobs)
+
+    key_func=lambda job:(job['job_name'].upper(),job['skills'].upper(),job['location'].upper()) #sorted by skills and location
+
+    timsort(job_list,key_func)
+
+
     return JsonResponse(job_list,safe=False)
 
+
+#indexing
+# def update_index(request):
+#     if request.method == 'POST':
+#         jobs = Jobpost.objects.all().values()
+#         job_list = list(jobs)
+
+#         key_funcs = [
+#             lambda job: job['job_name'],
+#             lambda job: job['location'],
+#             lambda job: job['skills']
+#         ]
+
+#         # index = create_index(job_list, key_funcs)
+
+#         # Implement saving index to cache or database if needed
+#         # Example: cache.set('job_index', index)
+
+#         return JsonResponse({'status': 'Index updated successfully'})
+
+#     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+#indexing
+# def search_jobs(request):
+#     if request.method == 'POST':
+#         jobtitle = request.POST.get('jobtitle', '').lower()
+#         location = request.POST.get('location', '').lower()
+#         skill = request.POST.get('skill', '').lower()
+
+#         # Retrieve the index from the database or cache (implement retrieval mechanism)
+#         # Example: index = cache.get('job_index')
+
+#         jobs = Jobpost.objects.all().values()
+#         job_list = list(jobs)
+#         key_funcs = [
+#             lambda job: job['job_name'],
+#             lambda job: job['location'],
+#             lambda job: job['skills']
+#         ]
+#         index = create_index(job_list, key_funcs)
+
+#         results = set()
+#         if jobtitle:
+#             results.update(search_index(index, jobtitle))
+#         if location:
+#             results.update(search_index(index, location))
+#         if skill:
+#             results.update(search_index(index, skill))
+
+#         results = list(results)
+#         filtered_jobs = [job_list[i] for i in results]
+
+#         return JsonResponse(filtered_jobs, safe=False)
+
+#     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
 

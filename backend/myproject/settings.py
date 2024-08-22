@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jobs',
+        'NAME': 'jobjourney',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
