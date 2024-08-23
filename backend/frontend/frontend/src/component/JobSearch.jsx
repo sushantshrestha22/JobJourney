@@ -21,7 +21,7 @@ const JobSearch = () => {
   return (
     <div className="bg-[#0F172A] flex flex-col items-center justify-center box-border">
       <Navbar />
-      <form>
+      <form method="POST" action="http://127.0.0.1:8000/api/search-jobs/">
         <div className=" p-4 grid grid-cols-4 gap-4">
           <input
             type="text"
@@ -47,8 +47,11 @@ const JobSearch = () => {
             placeholder="enter skills"
             required
           />
-          <button className="text-lg rounded bg-blue-200 border-none py-1 px-4 text-[#0F172A] font-semibold">
-            search
+          <button
+            type="submit"
+            className="text-lg rounded bg-blue-200 border-none py-1 px-4 text-[#0F172A] font-semibold"
+          >
+            Search
           </button>
         </div>
       </form>

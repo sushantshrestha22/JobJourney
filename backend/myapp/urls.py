@@ -8,6 +8,8 @@ urlpatterns = [
     path('jobpost/',views.Jobp,name='Jobp'),
     # re_path(r'^.*$', views.index, name='index'),
     path('api/job/',views.job_list,name='job_list'),
+    #  path('api/update-index/', views.update_index, name='update_index'),
+    # path('api/search-jobs/', views.search_jobs, name='search_jobs'),
 
     
 
