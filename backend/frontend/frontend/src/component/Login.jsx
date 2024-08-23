@@ -53,7 +53,7 @@ export default function Login() {
             <Form method="POST" onSubmit={handleSubmit}>
               <Row>
                 <Form.Group>
-                  <Form.Label for="email">Email</Form.Label>
+                  <Form.Label htmlFor="email">Email</Form.Label>
                   <Form.Control
                     name="email"
                     id="email"
@@ -65,7 +65,7 @@ export default function Login() {
 
               <Row className="mt-2">
                 <Form.Group>
-                  <Form.Label for="password">Password</Form.Label>
+                  <Form.Label htmlFor="password">Password</Form.Label>
                   <Form.Control
                     name="password"
                     id="password"

@@ -46,7 +46,7 @@ export default function Register() {
             <Form method="POST" onSubmit={handleSubmit}>
               <Row className="mt-2">
                 <Form.Group>
-                  <Form.Label for="email">Email</Form.Label>
+                  <Form.Label htmlFor="email">Email</Form.Label>
                   <Form.Control
                     name="email"
                     id="email"
@@ -58,7 +58,7 @@ export default function Register() {
 
               <Row className="mt-2">
                 <Form.Group>
-                  <Form.Label for="password">Password</Form.Label>
+                  <Form.Label htmlFor="password">Password</Form.Label>
                   <Form.Control
                     name="password"
                     id="password"
@@ -69,7 +69,7 @@ export default function Register() {
               </Row>
               <Row className="mt-2">
                 <Form.Group>
-                  <Form.Label for="confirm">Confirm Password</Form.Label>
+                  <Form.Label htmlFor="confirm">Confirm Password</Form.Label>
                   <Form.Control
                     name="confirm"
                     id="confirm"

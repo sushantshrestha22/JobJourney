@@ -12,11 +12,14 @@ export default function Home() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setCount((count) => count + 1);
     if (count === 10000) {
       setCount(10000);
     }
-  });
+    else{
+      setCount( count + 1);
+
+    }
+  },[count]);
 
   const card = [
     {
@@ -39,10 +42,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-screen">
+    <div className="w-full">
       <Navbar />
 
-      <div className="flex w-screen bg-[#0F172A] items-center gap-[10%] h-[92vh]">
+      <div className="flex w-full bg-[#0F172A] items-center gap-[10%] h-[92vh]">
         <div className="w-[50%] ml-[10%]  xl:ml-[100px]">
           <div className=" ">
             <div className="lg:text-5xl sm:text-4xl sm:font-bold lg:font-extrabold text-white">
@@ -82,9 +85,9 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-white flex justify-center gap-[50px] h-[50vh] items-center">
-        {card.map((data) => {
+        {card.map((data,i) => {
           return (
-            <div className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
+            <div key={i} className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
               <div className="">{data.logo}</div>
               <div className="text-xl font-bold text-white">{data.title}</div>
               <div className="text-white text-lg text-center">

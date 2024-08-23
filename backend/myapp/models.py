@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Jobpost(models.Model):
+    company_name=models.CharField(max_length=100,default="Default Company")
     job_name=models.CharField(max_length=100)
     location=models.CharField(max_length=100)
     description=models.TextField()

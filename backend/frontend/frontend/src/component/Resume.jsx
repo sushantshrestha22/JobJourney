@@ -1,11 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
+import { MdDelete } from "react-icons/md";
 
 export default function Resume() {
+  const [experience, setExperience] = useState([""]);
+  const [skill, setSkill] = useState([""]);
+  const [education, setEducation] = useState([""]);
+  const [hobbies, setHobbies] = useState([""]);
+  function handelClick1() {
+    setExperience([...experience, ""]);
+  }
+  function handelClick2() {
+    setSkill([...skill, ""]);
+  }
+  function handelClick3() {
+    setEducation([...education, ""]);
+  }
+  function handelClick4() {
+    setHobbies([...hobbies, ""]);
+  }
+
+  function handelDelete1(item, index) {
+    const List = [...experience];
+    List.splice(index, 1);
+    setExperience(List);
+  }
+  function handelDelete2(item, index) {
+    const List = [...skill];
+    List.splice(index, 1);
+    setSkill(List);
+  }
+  function handelDelete3(item, index) {
+    const List = [...education];
+    List.splice(index, 1);
+    setEducation(List);
+  }
+  function handelDelete4(item, index) {
+    const List = [...hobbies];
+    List.splice(index, 1);
+    setHobbies(List);
+  }
   return (
     <>
-      <div className="w-screen bg-[#0F172A]">
+      <div className="w-full bg-[#0F172A] ">
         <Navbar />
         <div className="mt-5  flex justify-center">
           <form
@@ -53,7 +91,7 @@ export default function Resume() {
                     Contact No<sup className="text-xl font-bold">*</sup>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     id="contactnumber"
                     name="contactnumber"
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
@@ -87,22 +125,42 @@ export default function Resume() {
                     required
                   />
                 </div>
-                <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
-                  <label htmlFor="education">
-                    Education<sup className="text-xl font-bold">*</sup>
+                <div className="text-[#0F172A]  text-xl  flex flex-col gap-3 ">
+                  <label htmlFor="language" className="font-bold">
+                    Language<sup className="">(optional)</sup>
                   </label>
-                  <select
-                    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                    name="education"
-                  >
-                    <option value="SEE" selected>
-                      SEE
-                    </option>
-                    <option value="+2">+2</option>
-                    <option value="bachelors">Bachelor</option>
-                    <option value="master">Master</option>
-                  </select>
+                  <div className="flex gap-[10px]">
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="english"
+                        name="language"
+                        value="english"
+                      />
+                      <label for="english"> English</label>
+                    </div>
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="nepali"
+                        name="language"
+                        value="nepali"
+                        
+                      />
+                      <label for="nepali">Nepali</label>
+                    </div>
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="Others"
+                        name="language"
+                        value="Others"
+                      />
+                      <label for="Others"> Others</label>
+                    </div>
+                  </div>
                 </div>
+
                 <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
                   <label htmlFor="gender">
                     Gender<sup className="text-xl font-bold">*</sup>
@@ -111,7 +169,7 @@ export default function Resume() {
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                     name="gender"
                   >
-                    <option value="male" selected>
+                    <option value="male" >
                       Male
                     </option>
                     <option value="female">Female</option>
@@ -127,7 +185,7 @@ export default function Resume() {
                     id="description"
                     name="description"
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                    placeholder="Enter your job description"
+                    placeholder="only 150 characters"
                     required
                   />
                 </div>
@@ -135,86 +193,180 @@ export default function Resume() {
             </div>
             <div>
               <div className=" text-[#0F172A] text-xl mt-5 font-bold">
-                What Are The Job Requirement?
+                Tell Us About Your Education
                 <hr></hr>
               </div>
               <div className="grid grid-cols-2 gap-10">
                 <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                   <label htmlFor="experience">
-                    Experience level<sup className="text-xl font-bold">*</sup>
+                    Work Experience<sup className="text-xl font-bold">*</sup>
                   </label>
-                  <select
-                    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                    name="experience"
-                  >
-                    <option value="fresher" selected>
-                      Fresher
-                    </option>
-                    <option value="1/2 years">1/2 years</option>
-                    <option value="3years">3years</option>
-                  </select>
-                  {/* <input
-                  type="text"
-                  id="experience"
-                  name="experience"
-                  placeholder="Enter your experience level"
-                /> */}
+                  <div className="flex flex-col gap-[10px]">
+                    {experience.map((item, i) => {
+                      return (
+                        <div className="flex gap-[10px] justify-center items-center">
+                          <input
+                            key={i}
+                            type="text"
+                            id="experience"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                            name="experience"
+                            placeholder="Enter your experience level"
+                            required
+                          />
+                          {experience.length > 1 && (
+                            <button
+                              onClick={handelDelete1}
+                              className=" text-lg rounded  bg-red-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                            >
+                              <MdDelete className="h-[30px] w-[30px]"/>
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {experience.length < 4 && (
+                    <button
+                      onClick={handelClick1}
+                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                    >
+                      Add
+                    </button>
+                  )}
                 </div>
                 <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="skill">
-                    Skills <sup className="text-xl font-bold">*</sup>
+                  <label htmlFor="education">
+                  Education<sup className="text-xl font-bold">*</sup>
+                  </label>
+                  <div className="flex flex-col gap-[10px]">
+                    {education.map((item, i) => {
+                      return (
+                        <div className="flex gap-[10px] justify-center items-center">
+                          <input
+                            key={i}
+                            type="text"
+                            id="education"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                            name="education"
+                            placeholder="Enter your education"
+                            required
+                          />
+                          {education.length > 1 && (
+                            <button
+                              onClick={handelDelete3}
+                              className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
+                            >
+                             <MdDelete className="h-[30px] w-[30px]"/>
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {skill.length < 4 && (
+                    <button
+                      onClick={handelClick3}
+                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                    >
+                      Add
+                    </button>
+                  )}
+                </div>
+                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
+                  <label htmlFor="skills">
+                  Skills <sup className="text-xl font-bold">*</sup>
+                  </label>
+                  <div className="flex flex-col gap-[10px]">
+                    {skill.map((item, i) => {
+                      return (
+                        <div className="flex gap-[10px] justify-center items-center">
+                          <input
+                            key={i}
+                            type="text"
+                            id="skill"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                            name="skill"
+                            placeholder="Enter your skill"
+                            required
+                          />
+                          {skill.length > 1 && (
+                            <button
+                              onClick={handelDelete2}
+                              className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
+                            >
+                             <MdDelete className="h-[30px] w-[30px]"/>
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {skill.length < 4 && (
+                    <button
+                      onClick={handelClick2}
+                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                    >
+                      Add
+                    </button>
+                  )}
+                </div>
+                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
+                  <label htmlFor="hobbies">
+                  Hobbies <sup className="text-xl font-bold">*</sup>
+                  </label>
+                  <div className="flex flex-col gap-[10px]">
+                    {hobbies.map((item, i) => {
+                      return (
+                        <div className="flex gap-[10px] justify-center items-center">
+                          <input
+                            key={i}
+                            type="text"
+                            id="hobbies"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                            name="hobbies"
+                            placeholder="Enter your hobbies"
+                            required
+                          />
+                          {hobbies.length > 1 && (
+                            <button
+                              onClick={handelDelete4}
+                              className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
+                            >
+                             <MdDelete className="h-[30px] w-[30px]"/>
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {hobbies.length < 4 && (
+                    <button
+                      onClick={handelClick4}
+                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                    >
+                      Add
+                    </button>
+                  )}
+                </div>
+                <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
+                  <label htmlFor="project">
+                    Project<sup className="text-xl font-bold">*</sup>
                   </label>
                   <input
-                    type="text"
-                    id="skill"
-                    name="skill"
+                    type="url"
+                    id="project"
+                    name="project"
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                    placeholder="Enter your skills"
-                    required
                   />
                 </div>
-                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="language">
-                    Language<sup className="">(optional)</sup>
-                  </label>
-                  <input
-                    type="text"
-                    id="language"
-                    name="language"
-                    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                    placeholder="Enter your languages"
-                  />
-                </div>
-                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="jobtype">
-                    Job Type<sup className="text-xl font-bold">*</sup>
-                  </label>
-                  <select
-                    name="jobtype"
-                    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  >
-                    <option value="part-time" selected>
-                      Part-time
-                    </option>
-                    <option value="full-time">Full-time</option>
-                    <option value="freelance">Freelance</option>
-                  </select>
-                  {/* <input
-                  type="text"
-                  id="jobtype"
-                  name="jobtype"
-                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  placeholder="Enter your job type"
-                /> */}
-                </div>
+              
+               
               </div>
             </div>
             <div className="flex justify-end">
-              <button
-                type="submit"
-                className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
-              >
-               Create Resume
+              <button className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
+                Create Resume
               </button>
             </div>
           </form>

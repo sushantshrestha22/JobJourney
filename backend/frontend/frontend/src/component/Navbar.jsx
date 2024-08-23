@@ -4,7 +4,7 @@ import "../App.css";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center text-white justify-between lg:px-[30px] h-[8vh]  w-full sticky top-0 bg-[#0F172A] border-bottom ">
+    <nav className="flex items-center text-white justify-between h-[8vh] sticky top-0 bg-[#0F172A] border-bottom box-border ">
       <div className="lg-px-[30px] text-3xl font-bold px-[50px] ">
         <NavLink to="/home" className="no-underline text-white">
           JobJourney
@@ -14,16 +14,16 @@ export default function Navbar() {
         <NavLink to="/home" className="no-underline text-white">
           Home
         </NavLink>
-        <NavLink to="/Resume" className="no-underline text-white">
+        <NavLink to="/resume" className="no-underline text-white">
           Resume
         </NavLink>
-        <NavLink to="/JobPost" className="no-underline text-white">
+        <NavLink to="/jobpost" className="no-underline text-white">
           JobPost
         </NavLink>
-        <NavLink to="/Resource" className="no-underline text-white">
+        <NavLink to="/resource" className="no-underline text-white">
           Resource
         </NavLink>
-        <NavLink to="/Jobtracking" className="no-underline text-white">
+        <NavLink to="/jobtracking" className="no-underline text-white">
           Jobtracking
         </NavLink>
       </div>

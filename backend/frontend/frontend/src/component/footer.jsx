@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
 export default function footer() {
   return (
-    <div className="bg-[#0F172A] text-white flex flex-col items-center justify-center gap-5 text-xl h-[50vh]">
+    <div className="bg-[#0F172A] text-white box-border flex flex-col items-center justify-center gap-5 text-xl h-[50vh]">
       <div className="flex gap-5">
 
       <div>Home</div>

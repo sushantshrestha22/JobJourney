@@ -45,12 +45,13 @@ def home(request):
         else:
            return JsonResponse({'success': False, 'message':'Invalid Credentials!!'}) # Redirect to the login page on failure
     else:
-        return render(request, '/')  # Render the login template for GET request
+        return redirect('/')  # Render the login template for GET request
 
 
 #JobPost logic goes here
-def JobPost(request):
+def Jobp(request):
     if request.method == 'POST':
+        company_name=request.POST.get('companyname')
         job_name = request.POST.get('jobname')
         location = request.POST.get('location')
         description = request.POST.get('description')
@@ -61,6 +62,7 @@ def JobPost(request):
         job_type = request.POST.get('jobtype')
 
         job_post=Jobpost(
+            company_name=company_name,
             job_name=job_name,
             location=location,
             description=description,
@@ -70,9 +72,16 @@ def JobPost(request):
             language=language,
             job_type=job_type)
         job_post.save()
-        return redirect('/home')
+        return redirect('/jobSearch')
     else:
         return redirect('/')
+    
+
+#job_list API that takes all data store in JobPost
+def job_list(request):
+    jobs=Jobpost.objects.all().values()
+    job_list=list(jobs)
+    return JsonResponse(job_list,safe=False)
 
 
 
