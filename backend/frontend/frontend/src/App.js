@@ -6,6 +6,7 @@ import Home from "./component/Home";
 import JobPost from "./component/JobPost";
 import Resume from "./component/Resume";
 import JobSearch from "./component/JobSearch";
+import Resource from "./component/Resource";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/home" element={<Home/>} />
           <Route path="/jobpost" element={<JobPost  />} />
           <Route path="/resume" element={<Resume/>} />
+          <Route path="/resource" element={<Resource/>} />
           <Route path="/jobSearch" element={<JobSearch />} />
         </Routes>
       </Router>

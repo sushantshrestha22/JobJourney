@@ -4,7 +4,7 @@ import "../App.css";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center text-white justify-between h-[8vh] sticky top-0 bg-[#0F172A] border-bottom box-border ">
+    <nav className="flex items-center text-white justify-between h-[8vh] sticky top-0 bg-[#0F172A] border-bottom box-border w-full">
       <div className="lg-px-[30px] text-3xl font-bold px-[50px] ">
         <NavLink to="/home" className="no-underline text-white">
           JobJourney
