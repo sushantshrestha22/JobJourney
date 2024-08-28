@@ -94,14 +94,14 @@ const JobSearch = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-white w-[80%] grid grid-cols-2 gap-5 p-[30px] ">
+        <div className="bg-white w-[80%] grid grid-cols-2 gap-5 p-[30px] border ">
           {list.map((post, index) => {
             return (
               <div
                 key={index}
-                className="container flex w-[80%] justify-evenly"
+                className="container flex w-[80%] justify-evenly border"
               >
-                <div className="bg-white rounded-md border border-2 border-black w-full h-[40hv] p-3 text-white ">
+                <div className="bg-white rounded-md border border-2 border-black w-full h-[50vh] p-3 text-white ">
                   <div className="px-[20px] rounded bg-[#0F172A] h-[35vh] flex flex-col justify-center gap-[20px] ">
                     <div className="flex ">
                       <div className="text-lg">{post.firstName}</div>
@@ -144,6 +144,7 @@ const JobSearch = () => {
 };
 
 export default JobSearch;
+
 // axios.get("http://127.0.0.1:8000/api/job/").then((res) => {
 //   setMyData(res.data);
 //   console.log(res.data);
