@@ -355,6 +355,7 @@ export default function Resume() {
                     type="url"
                     id="project"
                     name="project"
+                    placeholder="enter your project link"
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   />
                 </div>

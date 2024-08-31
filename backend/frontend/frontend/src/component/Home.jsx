@@ -11,15 +11,16 @@ import Navbar from "./Navbar";
 export default function Home() {
   const [count, setCount] = useState(0);
 
+ 
   useEffect(() => {
-    if (count === 10000) {
-      setCount(10000);
+    if (count < 10000) {
+      const change = setInterval(() => {
+        setCount(prevCount => prevCount + 1);
+      }, 1); 
+      
+      return () => clearInterval(change);
     }
-    else{
-      setCount( count + 1);
-
-    }
-  },[count]);
+  }, [count]);
 
   const card = [
     {
@@ -69,7 +70,7 @@ export default function Home() {
             className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
           >
             <Link
-              to="/jobSearch"
+              to="/home/jobSearch"
               className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold text-decoration-none"
             >
               Search Job
