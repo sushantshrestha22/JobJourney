@@ -94,12 +94,12 @@ const JobSearch = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-white w-[80%] grid grid-cols-2 gap-5 p-[30px] border ">
+        <div className="bg-white w-[80%] grid grid-cols-2 gap-5 p-[30px]  ">
           {list.map((post, index) => {
             return (
               <div
                 key={index}
-                className="container flex w-[80%] justify-evenly border"
+                className="container flex w-[80%] justify-evenly "
               >
                 <div className="bg-white rounded-md border border-2 border-black w-full h-[50vh] p-3 text-white ">
                   <div className="px-[20px] rounded bg-[#0F172A] h-[35vh] flex flex-col justify-center gap-[20px] ">
