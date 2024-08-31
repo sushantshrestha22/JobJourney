@@ -41,6 +41,7 @@ export default function Resume() {
     List.splice(index, 1);
     setHobbies(List);
   }
+
   return (
     <>
       <div className="w-full bg-[#0F172A] ">
@@ -48,7 +49,7 @@ export default function Resume() {
         <div className="mt-5  flex justify-center">
           <form
             method="POST"
-            action="http://127.0.0.1:8000/JobPost/"
+            action="http://127.0.0.1:8000/resume/"
             className="bg-white py-[5vh] w-[70%] px-[50px]"
           >
             <div className="flex justify-center text-[#0F172A] lg:text-3xl sm:text-2xl font-bold ">
@@ -145,7 +146,6 @@ export default function Resume() {
                         id="nepali"
                         name="language"
                         value="nepali"
-                        
                       />
                       <label for="nepali">Nepali</label>
                     </div>
@@ -169,9 +169,7 @@ export default function Resume() {
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                     name="gender"
                   >
-                    <option value="male" >
-                      Male
-                    </option>
+                    <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="others">Others</option>
                   </select>
@@ -219,7 +217,7 @@ export default function Resume() {
                               onClick={handelDelete1}
                               className=" text-lg rounded  bg-red-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
                             >
-                              <MdDelete className="h-[30px] w-[30px]"/>
+                              <MdDelete className="h-[30px] w-[30px]" />
                             </button>
                           )}
                         </div>
@@ -237,7 +235,7 @@ export default function Resume() {
                 </div>
                 <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                   <label htmlFor="education">
-                  Education<sup className="text-xl font-bold">*</sup>
+                    Education<sup className="text-xl font-bold">*</sup>
                   </label>
                   <div className="flex flex-col gap-[10px]">
                     {education.map((item, i) => {
@@ -257,7 +255,7 @@ export default function Resume() {
                               onClick={handelDelete3}
                               className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
                             >
-                             <MdDelete className="h-[30px] w-[30px]"/>
+                              <MdDelete className="h-[30px] w-[30px]" />
                             </button>
                           )}
                         </div>
@@ -275,7 +273,7 @@ export default function Resume() {
                 </div>
                 <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                   <label htmlFor="skills">
-                  Skills <sup className="text-xl font-bold">*</sup>
+                    Skills <sup className="text-xl font-bold">*</sup>
                   </label>
                   <div className="flex flex-col gap-[10px]">
                     {skill.map((item, i) => {
@@ -295,7 +293,7 @@ export default function Resume() {
                               onClick={handelDelete2}
                               className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
                             >
-                             <MdDelete className="h-[30px] w-[30px]"/>
+                              <MdDelete className="h-[30px] w-[30px]" />
                             </button>
                           )}
                         </div>
@@ -313,7 +311,7 @@ export default function Resume() {
                 </div>
                 <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                   <label htmlFor="hobbies">
-                  Hobbies <sup className="text-xl font-bold">*</sup>
+                    Hobbies <sup className="text-xl font-bold">*</sup>
                   </label>
                   <div className="flex flex-col gap-[10px]">
                     {hobbies.map((item, i) => {
@@ -333,7 +331,7 @@ export default function Resume() {
                               onClick={handelDelete4}
                               className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
                             >
-                             <MdDelete className="h-[30px] w-[30px]"/>
+                              <MdDelete className="h-[30px] w-[30px]" />
                             </button>
                           )}
                         </div>
@@ -360,8 +358,6 @@ export default function Resume() {
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   />
                 </div>
-              
-               
               </div>
             </div>
             <div className="flex justify-end">
