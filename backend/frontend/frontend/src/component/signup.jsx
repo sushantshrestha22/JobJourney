@@ -24,7 +24,7 @@ export default function Register() {
     if (data.success) {
       window.location.href = data.redirect;
     } else {
-      setErrorMessage(data.error1 || data.error);
+      setErrorMessage(data.error1 || data.error || data.error2);
     }
   };
 
