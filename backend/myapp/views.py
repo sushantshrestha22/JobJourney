@@ -2,8 +2,12 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import Jobpost
+from .models import Jobpost,Resume,ResourcePython,ResourceReact
 from django.http import JsonResponse
+from .serializers import ResumeSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+import re
 import json
 from .algorithm import *
 
@@ -26,6 +30,20 @@ def register(request):
 
         if User.objects.filter(username=email).exists():
             return JsonResponse({'success': False, 'error1': 'Email already exists'})
+        
+        # Regular expression for a strong password:
+        # - At least 8 characters
+        # - Contains at least one uppercase letter
+        # - Contains at least one lowercase letter
+        # - Contains at least one digit
+        # - Contains at least one special character
+        pattern = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+        if not re.match(pattern, password):
+            return JsonResponse({
+                'success': False, 
+                'error2': 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character.'
+            })
+
 
         user = User.objects.create_user(username=email, password=password)
         user.save()
@@ -97,62 +115,7 @@ def jobsearch(request):
     return redirect('/jobSearch')
 
 
-#indexing
-# def update_index(request):
-#     if request.method == 'POST':
-#         jobs = Jobpost.objects.all().values()
-#         job_list = list(jobs)
-
-#         key_funcs = [
-#             lambda job: job['job_name'],
-#             lambda job: job['location'],
-#             lambda job: job['skills']
-#         ]
-
-#         # index = create_index(job_list, key_funcs)
-
-#         # Implement saving index to cache or database if needed
-#         # Example: cache.set('job_index', index)
-
-#         return JsonResponse({'status': 'Index updated successfully'})
-
-#     return JsonResponse({'error': 'Invalid request method'}, status=400)
-
-#indexing
-# def search_jobs(request):
-#     if request.method == 'POST':
-#         jobtitle = request.POST.get('jobtitle', '').lower()
-#         location = request.POST.get('location', '').lower()
-#         skill = request.POST.get('skill', '').lower()
-
-#         # Retrieve the index from the database or cache (implement retrieval mechanism)
-#         # Example: index = cache.get('job_index')
-
-#         jobs = Jobpost.objects.all().values()
-#         job_list = list(jobs)
-#         key_funcs = [
-#             lambda job: job['job_name'],
-#             lambda job: job['location'],
-#             lambda job: job['skills']
-#         ]
-#         index = create_index(job_list, key_funcs)
-
-#         results = set()
-#         if jobtitle:
-#             results.update(search_index(index, jobtitle))
-#         if location:
-#             results.update(search_index(index, location))
-#         if skill:
-#             results.update(search_index(index, skill))
-
-#         results = list(results)
-#         filtered_jobs = [job_list[i] for i in results]
-
-#         return JsonResponse(filtered_jobs, safe=False)
-
-#     return JsonResponse({'error': 'Invalid request method'}, status=400)
-
-
+#resume 
 def resume(request):
     if request.method=='POST':
         firstname=request.POST.get('firstname')
@@ -169,8 +132,45 @@ def resume(request):
         hobbies = request.POST.get('hobbies', [])  # list of hobbies
         project = request.POST.get('project')
 
-   
+        resumes=Resume(
+            firstname=firstname,
+            lastname=lastname,
+            contactnumber=contactnumber,
+            email=email,
+            location=location,
+            language=language,
+            gender=gender,
+            description=description,
+            experience=experience,
+            education=education,
+            skills=skills,
+            hobbies=hobbies,
+            project=project
+        )
+        resumes.save()
+        return redirect('/home')
+    else:
+        return redirect('/')
+
+
+#resume_api
+@api_view(['GET'])
+def resume_api(request):
+    resumes = Resume.objects.all()
+    serializer = ResumeSerializer(resumes, many=True)
+    return Response(serializer.data)
+
 
 
 def resource(request):
     return redirect('/resource')
+
+def python_api(request):
+    py=ResourcePython.objects.all().values()
+    pyth=list(py)
+    return JsonResponse(pyth,safe=False)
+
+def react_api(request):
+    re=ResourceReact.objects.all().values()
+    react=list(re)
+    return JsonResponse(react,safe=False)

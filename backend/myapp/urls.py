@@ -11,6 +11,9 @@ urlpatterns = [
     path('jobSearch/',views.jobsearch,name='jobsearch'),
     # re_path(r'^.*$', views.index, name='index'),
     path('api/job/',views.job_list,name='job_list'),
+    path('api/resume/',views.resume_api,name='resume_api'),
+    path('api/python/',views.python_api,name='python_api'),
+    path('api/react/',views.react_api,name='react_api'),
     #  path('api/update-index/', views.update_index, name='update_index'),
     # path('api/search-jobs/', views.search_jobs, name='search_jobs'),
 

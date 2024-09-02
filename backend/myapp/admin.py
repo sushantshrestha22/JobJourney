@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Jobpost
+from .models import Jobpost, Resume, ResourcePython,ResourceReact
 
 # Register your models here.
 @admin.register(Jobpost)
@@ -11,3 +11,9 @@ class JobpostAdmin(admin.ModelAdmin):
     def approve_jobs(self, request, queryset):
         queryset.update(is_approved=True)
     approve_jobs.short_description = "Approve selected job posts"
+
+
+admin.site.register(Resume)
+
+admin.site.register(ResourcePython)
+admin.site.register(ResourceReact)

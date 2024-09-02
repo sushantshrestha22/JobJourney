@@ -1,6 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import { FaHeart } from "react-icons/fa6";
+
 export default function Card() {
   return (
     <div>
