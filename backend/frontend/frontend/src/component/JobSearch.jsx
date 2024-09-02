@@ -11,8 +11,8 @@ const JobSearch = () => {
 
   useEffect(() => {
     if (search === "" && search1 === "") {
-      axios.get("https://dummyjson.com/users").then((res) => {
-        const items = res.data.users;
+      axios.get("http://127.0.0.1:8000/api/job/").then((res) => {
+        const items = res.data;
         setList(items);
       });
     }
@@ -20,12 +20,12 @@ const JobSearch = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    axios.get("https://dummyjson.com/users").then((res) => {
-      const items = res.data.users;
+    axios.get("http://127.0.0.1:8000/api/job/").then((res) => {
+      const items = res.data;
       const data = items.filter((course) => {
         return (
-          course.firstName.toLowerCase().includes(search.toLowerCase()) &&
-          course.lastName.toLowerCase().includes(search1.toLowerCase())
+          course.location.toLowerCase().includes(search.toLowerCase()) &&
+          course.job_name.toLowerCase().includes(search1.toLowerCase())
         );
       });
       setList(data);
@@ -104,18 +104,18 @@ const JobSearch = () => {
                 <div className="bg-white rounded-md border border-2 border-black w-full h-[50vh] p-3 text-white ">
                   <div className="px-[20px] rounded bg-[#0F172A] h-[35vh] flex flex-col justify-center gap-[20px] ">
                     <div className="flex ">
-                      <div className="text-lg">{post.firstName}</div>
+                      <div className="text-lg">{post.company_name}</div>
                     </div>
-                    <div className="text-4xl font-bold">{post.lastName}</div>
+                    <div className="text-4xl font-bold">{post.job_name}</div>
                     <div className="flex flex-wrap gap-[10px]">
                       <button className="border bg-transparent text-white rounded h-[30px] text-sm flex justify-center items-center">
                         Project Work
                       </button>
                       <button className="border bg-transparent text-white rounded h-[30px] text-sm flex justify-center items-center">
-                        {post.age}
+                        {post.experience_level}
                       </button>
                       <button className="border bg-transparent text-white rounded h-[30px] text-sm flex justify-center items-center">
-                        {post.gender}
+                        {post.job_type}
                       </button>
                       {/* <button className="border bg-transparent text-white rounded h-[30px] text-sm">skills</button> */}
                     </div>

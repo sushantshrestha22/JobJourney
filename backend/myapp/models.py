@@ -11,6 +11,7 @@ class Jobpost(models.Model):
     skills=models.CharField(max_length=50)
     language=models.CharField(max_length=100,blank=True,null=True)#optional field
     job_type=models.CharField(max_length=100)
+    is_approved=models.BooleanField(default=False)
 
     def __str__(self):
         return self.job_name

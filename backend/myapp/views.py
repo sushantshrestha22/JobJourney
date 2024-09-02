@@ -4,7 +4,9 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import Jobpost
 from django.http import JsonResponse
+import json
 from .algorithm import *
+
 
 # Create your views here.
 
@@ -71,7 +73,8 @@ def Jobp(request):
             experience_level=experience_level,
             skills=skills,
             language=language,
-            job_type=job_type)
+            job_type=job_type,
+            is_approved=False)
         job_post.save()
         return redirect('/jobSearch')
     else:
@@ -80,7 +83,7 @@ def Jobp(request):
 
 #job_list API that takes all data store in JobPost
 def job_list(request):
-    jobs=Jobpost.objects.all().values()
+    jobs=Jobpost.objects.filter(is_approved=True).values()
     job_list=list(jobs)
 
     key_func=lambda job:(job['job_name'].upper(),job['skills'].upper(),job['location'].upper()) #sorted by skills and location
@@ -89,6 +92,9 @@ def job_list(request):
 
 
     return JsonResponse(job_list,safe=False)
+
+def jobsearch(request):
+    return redirect('/jobSearch')
 
 
 #indexing
@@ -147,4 +153,24 @@ def job_list(request):
 #     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
+def resume(request):
+    if request.method=='POST':
+        firstname=request.POST.get('firstname')
+        lastname=request.POST.get('lastname')
+        contactnumber=request.POST.get('contactnumber')
+        email=request.POST.get('email')
+        location=request.POST.get('location')
+        language = request.POST.get('language', [])  # list of selected languages
+        gender = request.POST.get('gender')
+        description = request.POST.get('description')
+        experience = request.POST.get('experience', [])  # list of experience entries
+        education = request.POST.get('education', [])  # list of education entries
+        skills = request.POST.get('skill', [])  # list of skills
+        hobbies = request.POST.get('hobbies', [])  # list of hobbies
+        project = request.POST.get('project')
 
+   
+
+
+def resource(request):
+    return redirect('/resource')

@@ -70,7 +70,7 @@ export default function Home() {
             className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
           >
             <Link
-              to="/home/jobSearch"
+              to="/jobSearch"
               className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold text-decoration-none"
             >
               Search Job
