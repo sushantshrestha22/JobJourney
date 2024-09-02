@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export default function Resume() {
   const [experience, setExperience] = useState([""]);
@@ -145,7 +146,6 @@ export default function Resume() {
                         id="nepali"
                         name="language"
                         value="nepali"
-                        
                       />
                       <label for="nepali">Nepali</label>
                     </div>
@@ -169,9 +169,7 @@ export default function Resume() {
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                     name="gender"
                   >
-                    <option value="male" >
-                      Male
-                    </option>
+                    <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="others">Others</option>
                   </select>
@@ -196,179 +194,271 @@ export default function Resume() {
                 Tell Us About Your Education
                 <hr></hr>
               </div>
-              <div className="grid grid-cols-2 gap-10">
-                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="experience">
-                    Work Experience<sup className="text-xl font-bold">*</sup>
-                  </label>
-                  <div className="flex flex-col gap-[10px]">
-                    {experience.map((item, i) => {
-                      return (
-                        <div className="flex gap-[10px] justify-center items-center">
+              <div className="grid grid-cols-1 gap-10">
+                {education.map((item, i) => {
+                  return (
+                    <div
+                      className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
+                      key={i}
+                    >
+                      <div className="flex gap-[20px] justify-center items-center ">
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
+                          <label htmlFor="startDate">StartDate:</label>
                           <input
-                            key={i}
-                            type="text"
-                            id="experience"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
-                            name="experience"
-                            placeholder="Enter your experience level"
+                            type="date"
+                            id="startDate"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="startDate"
                             required
                           />
-                          {experience.length > 1 && (
-                            <button
-                              onClick={handelDelete1}
-                              className=" text-lg rounded  bg-red-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
-                            >
-                              <MdDelete className="h-[30px] w-[30px]"/>
-                            </button>
-                          )}
                         </div>
-                      );
-                    })}
-                  </div>
-                  {experience.length < 4 && (
-                    <button
-                      onClick={handelClick1}
-                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
-                    >
-                      Add
-                    </button>
-                  )}
-                </div>
-                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="education">
-                  Education<sup className="text-xl font-bold">*</sup>
-                  </label>
-                  <div className="flex flex-col gap-[10px]">
-                    {education.map((item, i) => {
-                      return (
-                        <div className="flex gap-[10px] justify-center items-center">
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                          <label htmlFor="endDate">EndDate:</label>
                           <input
-                            key={i}
-                            type="text"
-                            id="education"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
-                            name="education"
-                            placeholder="Enter your education"
+                            type="date"
+                            id="endDate"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="endDate"
                             required
                           />
-                          {education.length > 1 && (
-                            <button
-                              onClick={handelDelete3}
-                              className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
-                            >
-                             <MdDelete className="h-[30px] w-[30px]"/>
-                            </button>
-                          )}
                         </div>
-                      );
-                    })}
-                  </div>
-                  {skill.length < 4 && (
-                    <button
-                      onClick={handelClick3}
-                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                      </div>
+                      <div className="flex gap-[20px] justify-center items-center">
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                          <label htmlFor="institution">Institution:</label>
+                          <input
+                            type="text"
+                            id="institution"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="institution"
+                            required
+                          />
+                        </div>
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                          <label htmlFor="degree">Degree:</label>
+                          <input
+                            type="text"
+                            id="degree"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="degree"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="my-[20px] flex gap-[20px] juistify-center items-center">
+                {education.length > 1 && (
+                  <button
+                    onClick={handelDelete3}
+                    className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none   text-[#0F172A] font-semibold"
+                  >
+                    <MdDelete className="h-[30px] w-[30px]" />
+                  </button>
+                )}
+                {education.length < 3 && (
+                  <button
+                    onClick={handelClick3}
+                    className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
+                  >
+                    Add
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <div className=" text-[#0F172A] text-xl mt-5 font-bold">
+                Tell Us About Your Work Experience
+                <hr></hr>
+              </div>
+              <div className="grid grid-cols-1 gap-10">
+                {experience.map((item, i) => {
+                  return (
+                    <div
+                      className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
+                      key={i}
                     >
-                      Add
-                    </button>
-                  )}
-                </div>
-                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="skills">
+                      <div className="flex gap-[20px] justify-center items-center ">
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
+                          <label htmlFor="startDate">StartDate:</label>
+                          <input
+                            type="date"
+                            id="startDate"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="startDate"
+                            required
+                          />
+                        </div>
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                          <label htmlFor="endDate">EndDate:</label>
+                          <input
+                            type="date"
+                            id="endDate"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="endDate"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="flex gap-[20px] justify-center items-center">
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                          <label htmlFor="company">Company:</label>
+                          <input
+                            type="text"
+                            id="company"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="company"
+                            required
+                          />
+                        </div>
+                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                          <label htmlFor="position">Position:</label>
+                          <input
+                            type="text"
+                            id="position"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                            name="position"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="w-50 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                        <label htmlFor="description">Description:</label>
+                        <input
+                          type="text"
+                          id="description"
+                          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                          name="description"
+                          required
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="my-[20px] flex gap-[20px] juistify-center items-center">
+                {experience.length > 1 && (
+                  <button
+                    onClick={handelDelete1}
+                    className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none   text-[#0F172A] font-semibold"
+                  >
+                    <MdDelete className="h-[30px] w-[30px]" />
+                  </button>
+                )}
+                {experience.length < 3 && (
+                  <button
+                    onClick={handelClick1}
+                    className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none  text-[#0F172A] font-semibold"
+                  >
+                    Add
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-[20px]">
+              <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
+                <label htmlFor="skills">
                   Skills <sup className="text-xl font-bold">*</sup>
-                  </label>
-                  <div className="flex flex-col gap-[10px]">
-                    {skill.map((item, i) => {
-                      return (
-                        <div className="flex gap-[10px] justify-center items-center">
-                          <input
-                            key={i}
-                            type="text"
-                            id="skill"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
-                            name="skill"
-                            placeholder="Enter your skill"
-                            required
-                          />
-                          {skill.length > 1 && (
-                            <button
-                              onClick={handelDelete2}
-                              className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
-                            >
-                             <MdDelete className="h-[30px] w-[30px]"/>
-                            </button>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  {skill.length < 4 && (
+                </label>
+                <div className="flex flex-col gap-[10px]">
+                  {skill.map((item, i) => {
+                    return (
+                      <div className="flex gap-[10px] justify-center items-center">
+                        <input
+                          key={i}
+                          type="text"
+                          id="skill"
+                          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                          name="skill"
+                          placeholder="Enter your skill"
+                          required
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="my-[20px] flex gap-[20px] juistify-center items-center">
+                  {skill.length > 1 && (
+                    <button
+                      onClick={handelDelete2}
+                      className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none  text-[#0F172A] font-semibold"
+                    >
+                      <MdDelete className="h-[30px] w-[30px]" />
+                    </button>
+                  )}
+                  {skill.length < 5 && (
                     <button
                       onClick={handelClick2}
-                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                     className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
                     >
                       Add
                     </button>
                   )}
                 </div>
-                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                  <label htmlFor="hobbies">
+              </div>
+              <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
+                <label htmlFor="hobbies">
                   Hobbies <sup className="text-xl font-bold">*</sup>
-                  </label>
-                  <div className="flex flex-col gap-[10px]">
-                    {hobbies.map((item, i) => {
-                      return (
-                        <div className="flex gap-[10px] justify-center items-center">
-                          <input
-                            key={i}
-                            type="text"
-                            id="hobbies"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
-                            name="hobbies"
-                            placeholder="Enter your hobbies"
-                            required
-                          />
-                          {hobbies.length > 1 && (
-                            <button
-                              onClick={handelDelete4}
-                              className=" text-lg rounded  bg-red-200 border-none  py-2 px-4 text-[#0F172A] font-semibold"
-                            >
-                             <MdDelete className="h-[30px] w-[30px]"/>
-                            </button>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  {hobbies.length < 4 && (
+                </label>
+                <div className="flex flex-col gap-[10px]">
+                  {hobbies.map((item, i) => {
+                    return (
+                      <div className="flex gap-[10px] justify-center items-center">
+                        <input
+                          key={i}
+                          type="text"
+                          id="hobbies"
+                          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                          name="hobbies"
+                          placeholder="Enter your hobbies"
+                          required
+                        />
+                        
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="my-[20px] flex gap-[20px] juistify-center items-center">
+                  {hobbies.length > 1 && (
+                    <button
+                      onClick={handelDelete4}
+                      className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none   text-[#0F172A] font-semibold"
+                    >
+                      <MdDelete className="h-[30px] w-[30px]" />
+                    </button>
+                  )}
+                  {hobbies.length < 5 && (
                     <button
                       onClick={handelClick4}
-                      className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
+                     className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none  text-[#0F172A] font-semibold"
                     >
                       Add
                     </button>
                   )}
                 </div>
-                <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
-                  <label htmlFor="project">
-                    Project<sup className="text-xl font-bold">*</sup>
-                  </label>
-                  <input
-                    type="url"
-                    id="project"
-                    name="project"
-                    placeholder="enter your project link"
-                    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  />
-                </div>
-              
-               
+              </div>
+              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
+                <label htmlFor="project">
+                  Project<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="url"
+                  id="project"
+                  name="project"
+                  placeholder="enter your project link"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                />
               </div>
             </div>
             <div className="flex justify-end">
-              <button className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
-                Create Resume
-              </button>
+              <Link to="/resumeTemplate">
+                <button className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
+                  Create Resume
+                </button>
+              </Link>
             </div>
           </form>
         </div>

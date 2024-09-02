@@ -8,6 +8,11 @@ import ReactPlaylist from "./ReactPlaylist";
 import AllPlaylist from "./AllPlaylist";
 
 const Resource = () => {
+  const array = [
+    { target: "All" },
+    { target: "Python", course: "Python Development", cover: PythonCover },
+    { target: "React", course: "React Development", cover: ReactCover },
+  ];
   const [myData, setMyData] = useState(false);
   const [show, setShow] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -39,6 +44,7 @@ const Resource = () => {
     setShowAll(true);
     setMyData(false);
     setShow(false);
+    
   }, []);
 
   // useEffect(() => {
@@ -52,11 +58,7 @@ const Resource = () => {
   //   //   console.log(res.data);
   //   // });
   // }, []);
-  const array = [
-    { target: "All" },
-    { target: "Python", course: "Python Development", cover: PythonCover },
-    { target: "React", course: "React Development", cover: ReactCover },
-  ];
+ 
 
   return (
     <div className="bg-[#0F172A]">

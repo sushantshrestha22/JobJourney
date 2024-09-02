@@ -8,6 +8,7 @@ import JobPost from "./component/JobPost";
 import Resume from "./component/Resume";
 import JobSearch from "./component/JobSearch";
 import Resource from "./component/Resource";
+import ResumeTemplate from "./component/ResumeTemplate";
 function App() {
   return (
     <>
@@ -16,10 +17,10 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home/>} />
-          <Route path="/home/jobSearch" element={<JobSearch />} />
           <Route path="/jobSearch" element={<JobSearch />} />
           <Route path="/jobpost" element={<JobPost  />} />
           <Route path="/resume" element={<Resume/>} />
+          <Route path="/resumeTemplate" element={<ResumeTemplate/>} />
           <Route path="/resource" element={<Resource/>} />
         </Routes>
       </Router>

@@ -83,7 +83,7 @@ const JobSearch = () => {
           </div>
           <div className="flex flex-col items-center justify-center ">
             <div className="font-bold text-2xl text-[#0F172A]">
-              Whoops, no matches{" "}
+              Whoops, no matches
             </div>
             <div className="font-semibold text-lg text-gray-600">
               we couldn't find any search results.
@@ -125,7 +125,7 @@ const JobSearch = () => {
                       <div className="font-bold italic	">
                         Rs{post.salary}k/monthly
                       </div>
-                      <div>{post.location}</div>
+                      <div>post.location</div>
                     </div>
                     <button className=" text-lg rounded bg-[#0F172A] border-none py-1 px-4 text-white ">
                       Details
