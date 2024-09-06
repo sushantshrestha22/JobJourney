@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from .models import Jobpost,Resume,ResourcePython,ResourceReact
+from .models import *
 from django.http import JsonResponse
 from .serializers import ResumeSerializer
 from rest_framework.response import Response
@@ -174,3 +174,27 @@ def react_api(request):
     re=ResourceReact.objects.all().values()
     react=list(re)
     return JsonResponse(react,safe=False)
+
+def tracking(request):
+    if request.method=='POST':
+        title=request.POST.get('title')
+        company=request.POST.get('company')
+        status=request.POST.get('status')
+        contact=request.POST.get('date')
+        note=request.POST.get('note')
+
+        track=Tracking.objects.create(
+            title=title,
+            company=company,
+            status=status,
+            contact=contact,
+            note=note
+        )
+        track.save()
+        return redirect('tracking')
+    
+
+def tracking_api(request):
+    trace=Tracking.objects.all().values()
+    track=list(trace)
+    return JsonResponse(track,safe=False)

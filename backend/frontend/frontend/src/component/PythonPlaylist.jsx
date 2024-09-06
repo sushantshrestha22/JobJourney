@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Ads from "./Ads";
-import PythonCover from"../image/PythonCover.png"
+import PythonCover from "../image/PythonCover.png"
 import UIUX from "../image/Logo.png";
 import ReactPlayer from "react-player";
 import { FaCircleUser } from "react-icons/fa6";
@@ -36,10 +36,10 @@ export default function PythonPlaylist() {
 
   return (
     <div className="flex justify-evenly bg-[#0F172A] h-screen   ">
-        <div className="py-[20px] w-[45vw]">
+      <div className="py-[20px] w-[45vw]">
         {show ? (
           <div className="">
-            <Ads Image={PythonCover} title="python"/>
+            <Ads Image={PythonCover} title="python" />
           </div>
         ) : (
           <div className="">
@@ -98,18 +98,18 @@ export default function PythonPlaylist() {
                   width={150}
                   className="rounded-l-md "
                 />
-                
+
               </div>
               <div className="w-[70%] flex flex-col justify-evenly">
                 <div className="text-xl font-bold ">{data.title}</div>
                 <div className="line-clamp-2 text-md font-semibold text-gray-500  h-[7vh]">{data.description}</div>
-                
+
               </div>
             </div>
           );
         })}
       </div>
-      
+
     </div>
   );
 }

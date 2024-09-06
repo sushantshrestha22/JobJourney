@@ -51,3 +51,15 @@ class ResourceReact(models.Model):
     def __str__(self):
         return self.title
 
+class Tracking(models.Model):
+    title=models.CharField(max_length=20)
+    company=models.CharField(max_length=20)
+    status=models.CharField(max_length=20)
+    contact=models.IntegerField()
+    date=models.DateField()
+    note=models.TextField()
+
+    def __str__(self) -> str:
+        return self.title
+    
+

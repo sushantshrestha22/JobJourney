@@ -125,7 +125,7 @@ const JobSearch = () => {
                       <div className="font-bold italic	">
                         Rs{post.salary}k/monthly
                       </div>
-                      <div>post.location</div>
+                      <div>{post.location}</div>
                     </div>
                     <button className=" text-lg rounded bg-[#0F172A] border-none py-1 px-4 text-white ">
                       Details
