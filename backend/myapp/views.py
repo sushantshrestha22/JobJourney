@@ -174,3 +174,6 @@ def react_api(request):
     re=ResourceReact.objects.all().values()
     react=list(re)
     return JsonResponse(react,safe=False)
+
+def details(request,id):
+    return redirect('/details')
