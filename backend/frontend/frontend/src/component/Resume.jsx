@@ -5,6 +5,8 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function Resume() {
+
+
   const [experience, setExperience] = useState([""]);
   const [skill, setSkill] = useState([""]);
   const [education, setEducation] = useState([""]);
@@ -196,11 +198,11 @@ export default function Resume() {
                 <hr></hr>
               </div>
               <div className="grid grid-cols-1 gap-10">
-                {education.map((item, i) => {
-                  return (
+                
+                  
                     <div
                       className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
-                      key={i}
+                      
                     >
                       <div className="flex gap-[20px] justify-center items-center ">
                         <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
@@ -247,27 +249,10 @@ export default function Resume() {
                         </div>
                       </div>
                     </div>
-                  );
-                })}
+                
+                
               </div>
-              <div className="my-[20px] flex gap-[20px] juistify-center items-center">
-                {education.length > 1 && (
-                  <button
-                    onClick={handelDelete3}
-                    className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none   text-[#0F172A] font-semibold"
-                  >
-                    <MdDelete className="h-[30px] w-[30px]" />
-                  </button>
-                )}
-                {education.length < 3 && (
-                  <button
-                    onClick={handelClick3}
-                    className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
-                  >
-                    Add
-                  </button>
-                )}
-              </div>
+             
             </div>
 
             <div>
@@ -276,30 +261,30 @@ export default function Resume() {
                 <hr></hr>
               </div>
               <div className="grid grid-cols-1 gap-10">
-                {experience.map((item, i) => {
-                  return (
+                
+                  
                     <div
                       className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
-                      key={i}
+                      
                     >
                       <div className="flex gap-[20px] justify-center items-center ">
                         <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
-                          <label htmlFor="startDate">StartDate:</label>
+                          <label htmlFor="startDate1">StartDate:</label>
                           <input
                             type="date"
-                            id="startDate"
+                            id="startDate1"
                             className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="startDate"
+                            name="startDate1"
                             required
                           />
                         </div>
                         <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="endDate">EndDate:</label>
+                          <label htmlFor="endDate1">EndDate:</label>
                           <input
                             type="date"
-                            id="endDate"
+                            id="endDate1"
                             className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="endDate"
+                            name="endDate1"
                             required
                           />
                         </div>
@@ -327,49 +312,32 @@ export default function Resume() {
                         </div>
                       </div>
                       <div className="w-50 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                        <label htmlFor="description">Description:</label>
+                        <label htmlFor="wdescription">Description:</label>
                         <input
                           type="text"
-                          id="description"
+                          id="wdescription"
                           className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                          name="description"
+                          name="wdescription"
                           required
                         />
                       </div>
                     </div>
-                  );
-                })}
+                  
+                
               </div>
-              <div className="my-[20px] flex gap-[20px] juistify-center items-center">
-                {experience.length > 1 && (
-                  <button
-                    onClick={handelDelete1}
-                    className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none   text-[#0F172A] font-semibold"
-                  >
-                    <MdDelete className="h-[30px] w-[30px]" />
-                  </button>
-                )}
-                {experience.length < 3 && (
-                  <button
-                    onClick={handelClick1}
-                    className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none  text-[#0F172A] font-semibold"
-                  >
-                    Add
-                  </button>
-                )}
-              </div>
+              
             </div>
-            <div className="grid grid-cols-2 gap-[20px]">
+            <div className="grid grid-cols-2 gap-[20px] mt-[20px]">
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="skills">
                   Skills <sup className="text-xl font-bold">*</sup>
                 </label>
                 <div className="flex flex-col gap-[10px]">
-                  {skill.map((item, i) => {
-                    return (
+                  
+                    
                       <div className="flex gap-[10px] justify-center items-center">
                         <input
-                          key={i}
+                
                           type="text"
                           id="skill"
                           className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
@@ -378,38 +346,21 @@ export default function Resume() {
                           required
                         />
                       </div>
-                    );
-                  })}
+                    
+                  
                 </div>
-                <div className="my-[20px] flex gap-[20px] juistify-center items-center">
-                  {skill.length > 1 && (
-                    <button
-                      onClick={handelDelete2}
-                      className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none  text-[#0F172A] font-semibold"
-                    >
-                      <MdDelete className="h-[30px] w-[30px]" />
-                    </button>
-                  )}
-                  {skill.length < 5 && (
-                    <button
-                      onClick={handelClick2}
-                      className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
-                    >
-                      Add
-                    </button>
-                  )}
-                </div>
+                
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="hobbies">
                   Hobbies <sup className="text-xl font-bold">*</sup>
                 </label>
                 <div className="flex flex-col gap-[10px]">
-                  {hobbies.map((item, i) => {
-                    return (
+                  
+                    
                       <div className="flex gap-[10px] justify-center items-center">
                         <input
-                          key={i}
+                          
                           type="text"
                           id="hobbies"
                           className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
@@ -419,27 +370,10 @@ export default function Resume() {
                         />
 
                       </div>
-                    );
-                  })}
+                    
+                  
                 </div>
-                <div className="my-[20px] flex gap-[20px] juistify-center items-center">
-                  {hobbies.length > 1 && (
-                    <button
-                      onClick={handelDelete4}
-                      className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none   text-[#0F172A] font-semibold"
-                    >
-                      <MdDelete className="h-[30px] w-[30px]" />
-                    </button>
-                  )}
-                  {hobbies.length < 5 && (
-                    <button
-                      onClick={handelClick4}
-                      className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none  text-[#0F172A] font-semibold"
-                    >
-                      Add
-                    </button>
-                  )}
-                </div>
+                
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
                 <label htmlFor="project">
@@ -455,19 +389,19 @@ export default function Resume() {
               </div>
 
 
-<div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3 ">
-  <label htmlFor="profile_image">
-    Upload Profile Image<sup className="text-xl font-bold">*</sup>
-  </label>
-  <input
-    type="file"
-    id="profile_image"
-    name="profile_image"
-    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-    accept="image/*"
-    required
-  />
-</div>
+              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3 ">
+                <label htmlFor="profile_image">
+                  Upload Profile Image<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="file"
+                  id="profile_image"
+                  name="profile_image"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  accept="image/*"
+                  required
+                />
+              </div>
             </div>
             <div className="flex justify-end">
               <button type="submit" className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">

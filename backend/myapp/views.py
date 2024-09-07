@@ -4,7 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import *
 from django.http import JsonResponse
-# from .serializers import ResumeSerializer
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import re
@@ -78,7 +78,7 @@ def Jobp(request):
         description = request.POST.get('description')
         salary = request.POST.get('salary')
         experience_level = request.POST.get('experience')
-        skills = request.POST.get('skill')
+        skills = request.POST.getlist('skill',[])
         language = request.POST.get('language')
         job_type = request.POST.get('jobtype')
         requirement=request.POST.get('requirement')
@@ -93,13 +93,14 @@ def Jobp(request):
             description=description,
             salary=salary,
             experience_level=experience_level,
-            skills=skills,
+            # skills=skills,
             language=language,
             job_type=job_type,
             requirement=requirement,
             email=email,
             phone=phone,
             is_approved=False)
+        job_post.set_skills(skills)
         job_post.save()
         return redirect('/jobSearch')
     else:
@@ -111,7 +112,13 @@ def job_list(request):
     jobs=Jobpost.objects.filter(is_approved=True).values()
     job_list=list(jobs)
 
-    key_func=lambda job:(job['job_name'].upper(),job['skills'].upper(),job['location'].upper()) #sorted by skills and location
+     # Convert 'skills' from string to list if necessary
+    for job in job_list:
+        if isinstance(job['skills'], str):
+            # Convert the string representation of list back to list
+            job['skills'] = eval(job['skills'])  # Use eval cautiously; consider safer alternatives
+
+    key_func=lambda job:(job['job_name'].upper(),str(job['skills']).upper(),job['location'].upper()) #sorted by skills and location
 
     timsort(job_list,key_func)
 
@@ -124,41 +131,68 @@ def jobsearch(request):
 
 #resume 
 def resume(request):
-    if request.method=='POST':
-        firstname=request.POST.get('firstname')
-        lastname=request.POST.get('lastname')
-        contactnumber=request.POST.get('contactnumber')
-        email=request.POST.get('email')
-        location=request.POST.get('location')
-        language = request.POST.get('language', [])  # list of selected languages
+      if request.method == 'POST':
+        first_name = request.POST.get('firstname')
+        last_name = request.POST.get('lastname')
+        contact_number = request.POST.get('contactnumber')
+        email = request.POST.get('email')
+        location = request.POST.get('location')
         gender = request.POST.get('gender')
         description = request.POST.get('description')
-        experience = request.POST.get('experience', [])  # list of experience entries
-        education = request.POST.get('education', [])  # list of education entries
-        skills = request.POST.get('skill', [])  # list of skills
-        hobbies = request.POST.get('hobbies', [])  # list of hobbies
-        project = request.POST.get('project')
+        project_link = request.POST.get('project')
+        
+        # Handle file upload
+        profile_image = request.POST.get('profile_image')
 
-        resumes=Resume(
-            firstname=firstname,
-            lastname=lastname,
-            contactnumber=contactnumber,
+        # Deserialize JSON fields
+        language =request.POST.get('language')
+        skills = request.POST.get('skill')
+        hobbies =request.POST.get('hobbies')
+
+        # Education and work experience
+        education_start_date = request.POST.get('startDate')
+        education_end_date = request.POST.get('endDate')
+        institution = request.POST.get('institution')
+        degree = request.POST.get('degree')
+        
+        work_experience_start_date = request.POST.get('startDate1')
+        work_experience_end_date = request.POST.get('endDate1')
+        company = request.POST.get('company')
+        position = request.POST.get('position')
+        work_description = request.POST.get('wdescription')
+
+        # Create Resume instance and save to the database
+        resume_instance = Resume(
+            first_name=first_name,
+            last_name=last_name,
+            contact_number=contact_number,
             email=email,
             location=location,
             language=language,
             gender=gender,
             description=description,
-            experience=experience,
-            education=education,
             skills=skills,
             hobbies=hobbies,
-            project=project
+            project_link=project_link,
+            profile_image=profile_image,
+            education_start_date=education_start_date,
+            education_end_date=education_end_date,
+            institution=institution,
+            degree=degree,
+            work_experience_start_date=work_experience_start_date,
+            work_experience_end_date=work_experience_end_date,
+            company=company,
+            position=position,
+            work_description=work_description
         )
-        resumes.save()
-        return redirect('/home')
-    
-    else:
-        return redirect('/')
+        resume_instance.save()
+        return redirect('/resumeTemplate')
+
+
+def resume_api(request):
+    resum=Resume.objects.all().values()
+    resumee=list(resum)
+    return JsonResponse(resumee,safe=False)   
 
 
 
@@ -203,3 +237,7 @@ def tracking_api(request):
 
 def details(request):
     return redirect('/details')
+
+
+def resumeTemplate(request):
+    return redirect('/resumeTemplate')

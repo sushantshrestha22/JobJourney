@@ -47,7 +47,12 @@ export default function Detail({ company_name, job_name, location, requirement, 
             </div>
             <div className="flex flex-col justify-center ">
               <div className="text-xl font-bold">Skills:</div>
-              <div className="text-lg"> {skills}</div>
+              {skills.map((data,index)=>{
+                return<>
+                  <div className="text-lg"> {data}</div>
+                </>
+              })}
+            
             </div>
             <div className="flex flex-col justify-center ">
               <div className="text-xl font-bold">Language:</div>
