@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
+import { MdDelete } from "react-icons/md";
 
 export default function JobPost() {
+  const [skill, setSkill] = useState([""]);
+  function handelClick2() {
+    setSkill([...skill, ""]);
+  }
+  function handelDelete2(item, index) {
+    const List = [...skill];
+    List.splice(index, 1);
+    setSkill(List);
+  }
+
   return (
     <div className="w-full bg-[#0F172A]">
       <Navbar />
@@ -30,10 +41,10 @@ export default function JobPost() {
                   id="companyname"
                   name="companyname"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  placeholder="Enter your job title"
+                  placeholder="Enter your company name"
                   required
                 />
-                </div>
+              </div>
               <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
                 <label htmlFor="jobname">
                   Job Title<sup className="text-xl font-bold">*</sup>
@@ -74,6 +85,19 @@ export default function JobPost() {
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
+                <label htmlFor="requirement">
+                  Requirement<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="number"
+                  id="requirement"
+                  name="requirement"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="enter the requirement for job "
+                  required
+                />
+              </div>
+              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
                 <label htmlFor="description">
                   Description<sup className="text-xl font-bold">*</sup>
                 </label>
@@ -86,7 +110,6 @@ export default function JobPost() {
                   required
                 />
               </div>
-             
             </div>
           </div>
           <div>
@@ -99,10 +122,10 @@ export default function JobPost() {
                 <label htmlFor="experience">
                   Experience level<sup className="text-xl font-bold">*</sup>
                 </label>
-                  <select  
+                <select
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   name="experience"
-                  >
+                >
                   <option value="fresher">Fresher</option>
                   <option value="1/2 years">1/2 years</option>
                   <option value="3years">3years</option>
@@ -115,17 +138,46 @@ export default function JobPost() {
                 /> */}
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
-                <label htmlFor="skill">
-                 Skills <sup className="text-xl font-bold">*</sup>
-                </label>
-                <input
-                  type="text"
-                  id="skill"
-                  name="skill"
-                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  placeholder="Enter your skills"
-                  required
-                />
+                <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
+                  <label htmlFor="skills">
+                    Skills <sup className="text-xl font-bold">*</sup>
+                  </label>
+                  <div className="flex flex-col gap-[10px]">
+                    {skill.map((item, i) => {
+                      return (
+                        <div className="flex gap-[10px] justify-center items-center">
+                          <input
+                            key={i}
+                            type="text"
+                            id="skill"
+                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                            name="skill"
+                            placeholder="Enter your skill"
+                            required
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="my-[20px] flex gap-[20px] juistify-center items-center">
+                    {skill.length > 1 && (
+                      <button
+                        onClick={handelDelete2}
+                        className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none  text-[#0F172A] font-semibold"
+                      >
+                        <MdDelete className="h-[30px] w-[30px]" />
+                      </button>
+                    )}
+                    {skill.length < 5 && (
+                      <button
+                        onClick={handelClick2}
+                        className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
+                      >
+                        Add
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="language">
@@ -137,17 +189,17 @@ export default function JobPost() {
                   name="language"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your languages"
-                 
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="jobtype">
                   Job Type<sup className="text-xl font-bold">*</sup>
                 </label>
-                <select  name="jobtype"
+                <select
+                  name="jobtype"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  >
-                  <option value="part-time" >Part-time</option>
+                >
+                  <option value="part-time">Part-time</option>
                   <option value="full-time">Full-time</option>
                   <option value="freelance">Freelance</option>
                 </select>
@@ -158,6 +210,41 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job type"
                 /> */}
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className=" text-[#0F172A] text-xl mt-5 font-bold">
+              Contact
+              <hr></hr>
+            </div>
+            <div className="grid grid-cols-2 gap-10">
+
+            <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
+                <label htmlFor="email">
+                  Email<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
+                <label htmlFor="email">
+                  Phone number<sup className="text-xl font-bold">*</sup>
+                </label>
+                <input
+                  type="number"
+                  id="Phone"
+                  name="Phone"
+                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+                  placeholder="Enter your phone number"
+                  required
+                />
               </div>
             </div>
           </div>

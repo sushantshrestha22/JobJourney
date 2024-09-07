@@ -173,7 +173,8 @@ def tracking(request):
         title=request.POST.get('title')
         company=request.POST.get('company')
         status=request.POST.get('status')
-        contact=request.POST.get('date')
+        contact=request.POST.get('contact')
+        date=request.POST.get('date')
         note=request.POST.get('note')
 
         track=Tracking.objects.create(
@@ -181,13 +182,17 @@ def tracking(request):
             company=company,
             status=status,
             contact=contact,
+            date=date,
             note=note
         )
         track.save()
-        return redirect('tracking')
+        return redirect('/tracking')
     
 
 def tracking_api(request):
     trace=Tracking.objects.all().values()
     track=list(trace)
     return JsonResponse(track,safe=False)
+
+def details(request,id):
+    return redirect('/details')

@@ -3,6 +3,7 @@ import axios from "axios";
 import { GoAlert } from "react-icons/go";
 import Navbar from "./Navbar";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 const JobSearch = () => {
   const [search, setSearch] = useState("");
@@ -35,7 +36,7 @@ const JobSearch = () => {
   return (
     <div className="bg-[#0F172A] flex flex-col items-center justify-center box-border">
       <Navbar />
-      <form >
+      <form>
         <div className=" p-4 grid grid-cols-4 gap-4">
           <input
             type="text"
@@ -67,7 +68,7 @@ const JobSearch = () => {
             value={search1}
           />
           <button
-          //  type="submit"
+            //  type="submit"
             className="text-lg rounded bg-blue-200 border-none py-1 px-4 text-[#0F172A] font-semibold"
             onClick={handleClick}
           >
@@ -75,7 +76,7 @@ const JobSearch = () => {
           </button>
         </div>
       </form>
-      
+
       {list.length === 0 ? (
         <div className="bg-white w-[80%] flex flex-col items-center justify-center gap-3 p-[30px] ">
           <div className=" border-black-300">
@@ -127,9 +128,13 @@ const JobSearch = () => {
                       </div>
                       <div>{post.location}</div>
                     </div>
-                    <button className=" text-lg rounded bg-[#0F172A] border-none py-1 px-4 text-white ">
-                      Details
-                    </button>
+                    <Link to={`/details/${post.id}`}>
+                      <button className=" text-lg rounded bg-[#0F172A] border-none py-1 px-4 text-white"
+                      >
+                        Details
+                      </button>
+                      </Link>
+                   
                   </div>
                 </div>
               </div>
@@ -137,7 +142,7 @@ const JobSearch = () => {
           })}
         </div>
       )}
-     
+
       <Footer />
     </div>
   );
