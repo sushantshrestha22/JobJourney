@@ -118,7 +118,10 @@ const JobSearch = () => {
                       <button className="border bg-transparent text-white rounded h-[30px] text-sm flex justify-center items-center">
                         {post.job_type}
                       </button>
-                      {/* <button className="border bg-transparent text-white rounded h-[30px] text-sm">skills</button> */}
+                      {/* <button className="border bg-transparent text-white rounded h-[30px] text-sm">Quota:{post.requirement}</button> */}
+                    </div>
+                    <div className="flex ">
+                      <div className="text-lg">Vacancy: {post.requirement}</div>
                     </div>
                   </div>
                   <div className="flex pt-4 justify-between items-center ">
@@ -133,8 +136,8 @@ const JobSearch = () => {
                       >
                         Details
                       </button>
-                      </Link>
-                   
+                    </Link>
+
                   </div>
                 </div>
               </div>

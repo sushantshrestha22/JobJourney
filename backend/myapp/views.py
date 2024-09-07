@@ -81,6 +81,10 @@ def Jobp(request):
         skills = request.POST.get('skill')
         language = request.POST.get('language')
         job_type = request.POST.get('jobtype')
+        requirement=request.POST.get('requirement')
+        email=request.POST.get('email')
+        phone=request.POST.get('Phone')
+
 
         job_post=Jobpost(
             company_name=company_name,
@@ -92,6 +96,9 @@ def Jobp(request):
             skills=skills,
             language=language,
             job_type=job_type,
+            requirement=requirement,
+            email=email,
+            phone=phone,
             is_approved=False)
         job_post.save()
         return redirect('/jobSearch')
@@ -194,5 +201,5 @@ def tracking_api(request):
     track=list(trace)
     return JsonResponse(track,safe=False)
 
-def details(request,id):
+def details(request):
     return redirect('/details')

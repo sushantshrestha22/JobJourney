@@ -86,7 +86,7 @@ export default function JobPost() {
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
                 <label htmlFor="requirement">
-                  Requirement<sup className="text-xl font-bold">*</sup>
+                  Vacancy Quota<sup className="text-xl font-bold">*</sup>
                 </label>
                 <input
                   type="number"
@@ -220,7 +220,7 @@ export default function JobPost() {
             </div>
             <div className="grid grid-cols-2 gap-10">
 
-            <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
+              <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
                 <label htmlFor="email">
                   Email<sup className="text-xl font-bold">*</sup>
                 </label>
@@ -233,7 +233,7 @@ export default function JobPost() {
                   required
                 />
               </div>
-            <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
+              <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
                 <label htmlFor="email">
                   Phone number<sup className="text-xl font-bold">*</sup>
                 </label>

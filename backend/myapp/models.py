@@ -1,21 +1,25 @@
 from django.db import models
 
+
 # Create your models here.
 class Jobpost(models.Model):
     company_name=models.CharField(max_length=100,default="Default Company")
-    job_name=models.CharField(max_length=100)
-    location=models.CharField(max_length=100)
-    description=models.TextField()
-    salary=models.CharField(max_length=50)
-    experience_level=models.CharField(max_length=100)
-    skills=models.CharField(max_length=50)
+    job_name=models.CharField(max_length=100,null=True)
+    location=models.CharField(max_length=100,null=True)
+    description=models.TextField(null=True)
+    salary=models.CharField(max_length=50,null=True)
+    experience_level=models.CharField(max_length=100,null=True)
+    skills=models.TextField(null=True)
     language=models.CharField(max_length=100,blank=True,null=True)#optional field
     job_type=models.CharField(max_length=100)
+    requirement=models.IntegerField(default=0)
+    email=models.EmailField(null=True)
+    phone=models.IntegerField(default=0)
     is_approved=models.BooleanField(default=False)
 
     def __str__(self):
         return self.job_name
-
+    
 class Resume(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
