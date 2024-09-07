@@ -171,7 +171,6 @@ export default function Resume() {
                     name="gender"
                   >
                     <option value="male">Male</option>
-                    <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="others">Others</option>
                   </select>
@@ -394,7 +393,7 @@ export default function Resume() {
                   {skill.length < 5 && (
                     <button
                       onClick={handelClick2}
-                     className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
+                      className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
                     >
                       Add
                     </button>
@@ -418,7 +417,7 @@ export default function Resume() {
                           placeholder="Enter your hobbies"
                           required
                         />
-                        
+
                       </div>
                     );
                   })}
@@ -435,7 +434,7 @@ export default function Resume() {
                   {hobbies.length < 5 && (
                     <button
                       onClick={handelClick4}
-                     className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none  text-[#0F172A] font-semibold"
+                      className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none  text-[#0F172A] font-semibold"
                     >
                       Add
                     </button>
@@ -454,13 +453,26 @@ export default function Resume() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                 />
               </div>
+
+
+<div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3 ">
+  <label htmlFor="profile_image">
+    Upload Profile Image<sup className="text-xl font-bold">*</sup>
+  </label>
+  <input
+    type="file"
+    id="profile_image"
+    name="profile_image"
+    className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
+    accept="image/*"
+    required
+  />
+</div>
             </div>
             <div className="flex justify-end">
-              <Link to="/resumeTemplate">
-                <button className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
-                  Create Resume
-                </button>
-              </Link>
+              <button type="submit" className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
+                Create Resume
+              </button>
             </div>
           </form>
         </div>

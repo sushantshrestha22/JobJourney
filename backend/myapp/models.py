@@ -20,16 +20,16 @@ class Resume(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     contactnumber = models.CharField(max_length=10)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     location = models.CharField(max_length=255)
-    language = models.JSONField(default=list)  # or ArrayField if using PostgreSQL
-    gender = models.CharField(max_length=10)
+    language = models.JSONField(default=list)  
+    gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female'), ('others', 'Others')])
     description = models.TextField(blank=True, null=True)
-    experience = models.JSONField(default=list)  # or ArrayField if using PostgreSQL
-    education = models.JSONField(default=list)  # or ArrayField if using PostgreSQL
-    skills = models.JSONField(default=list)  # or ArrayField if using PostgreSQL
-    hobbies = models.JSONField(default=list)  # or ArrayField if using PostgreSQL
-    project = models.TextField(blank=True, null=True)
+    experience = models.JSONField(default=list)  
+    education = models.JSONField(default=list)  
+    skills = models.JSONField(default=list)  
+    hobbies = models.JSONField(default=list)  
+    project = models.URLField(blank=True,null=True)
 
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
@@ -61,5 +61,6 @@ class Tracking(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
     
 

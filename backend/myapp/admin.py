@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Jobpost, Resume, ResourcePython,ResourceReact
+from .models import *
 
 # Register your models here.
 @admin.register(Jobpost)
@@ -17,3 +17,7 @@ admin.site.register(Resume)
 
 admin.site.register(ResourcePython)
 admin.site.register(ResourceReact)
+
+admin.site.register(Tracking)
+
+

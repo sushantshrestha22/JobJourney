@@ -4,7 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import *
 from django.http import JsonResponse
-from .serializers import ResumeSerializer
+# from .serializers import ResumeSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import re
@@ -149,16 +149,9 @@ def resume(request):
         )
         resumes.save()
         return redirect('/home')
+    
     else:
         return redirect('/')
-
-
-#resume_api
-@api_view(['GET'])
-def resume_api(request):
-    resumes = Resume.objects.all()
-    serializer = ResumeSerializer(resumes, many=True)
-    return Response(serializer.data)
 
 
 
