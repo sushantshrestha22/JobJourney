@@ -15,6 +15,8 @@ urlpatterns = [
     path('api/python/',views.python_api,name='python_api'),
     path('api/react/',views.react_api,name='react_api'),
     path('details/',views.details,name='details'),
+    path('tracking/',views.tracking,name='tracking'),
+    path('api/tracking/',views.tracking_api,name='tracking_api'),
     #  path('api/update-index/', views.update_index, name='update_index'),
     # path('api/search-jobs/', views.search_jobs, name='search_jobs'),
 

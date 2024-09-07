@@ -18,17 +18,7 @@ export default function JobTracking() {
 
   const hello = useNavigate();
 
-  const handleCreate = (e) => {
-    e.preventDefault();
-    axios.post("https://66d8318437b1cadd8053c183.mockapi.io/api/v1/crud", {
-      title: title,
-      company: company,
-      status: status,
-      contact: contact,
-      date: date,
-      note: note,
-    });
-  };
+ 
   const handleEdit = () => {
     hello("/update");
   };
@@ -36,7 +26,7 @@ export default function JobTracking() {
   const handleDelete = (message) => {
     axios
       .delete(
-        `https://66d8318437b1cadd8053c183.mockapi.io/api/v1/crud/${message}`
+        `http://127.0.0.1:8000/api/tracking/${message}`
       ).then((res)=>{
         setData(res.data);
       });
@@ -45,7 +35,7 @@ export default function JobTracking() {
 
   useEffect(() => {
     axios
-      .get("https://66d8318437b1cadd8053c183.mockapi.io/api/v1/crud")
+      .get("http://127.0.0.1:8000/api/tracking/")
       .then((res) => {
         setData(res.data);
       });
@@ -59,8 +49,8 @@ export default function JobTracking() {
           Application:
         </div>
         <form
-          // method="POST"
-          // action="https://66d8318437b1cadd8053c183.mockapi.io/api/v1/crud"
+          method="POST"
+          action="http://127.0.0.1:8000/tracking/"
           className="border bg-white border-2 mt-[20px] py-[20px] container"
         >
           <div className="grid grid-cols-4 container gap-[20px]">
@@ -170,7 +160,6 @@ export default function JobTracking() {
             <button
               type="submit"
               className="btn btn-primary"
-              onClick={handleCreate}
             >
               Create
             </button>
