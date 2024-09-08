@@ -41,7 +41,7 @@ export default function PythonPlaylist({ Image }) {
           </div>
         ) : (
           <div className="">
-            <div className="container flex flex-col py-[20px] h-[85vh] bg-white gap-[10px] ">
+            <div className="container flex flex-col py-[20px] bg-white gap-[10px] ">
               <div className="flex justify-center">
                 <ReactPlayer
                   url={python[currentIndex].link}

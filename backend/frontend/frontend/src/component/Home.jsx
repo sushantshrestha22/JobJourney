@@ -9,18 +9,7 @@ import { GrResources } from "react-icons/gr";
 import Navbar from "./Navbar";
 
 export default function Home() {
-  const [count, setCount] = useState(0);
-
  
-  useEffect(() => {
-    if (count < 10000) {
-      const change = setInterval(() => {
-        setCount(prevCount => prevCount + 1);
-      }, 1); 
-      
-      return () => clearInterval(change);
-    }
-  }, [count]);
 
   const card = [
     {
@@ -60,7 +49,7 @@ export default function Home() {
             </div>
             <div className=" mt-3 sm:text-sm lg:text-lg w-[100%] text-gray-400">
               Each month, more than 3 million job seekers tum to website in
-              their search for work, making over {count} applications every
+              their search for work, making over 100 applications every
               single day.
             </div>
           </div>

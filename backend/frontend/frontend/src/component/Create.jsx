@@ -1,18 +1,26 @@
-import React from 'react'
-
+import React, { useState} from "react";
+import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 export default function Create() {
+  const [title, setTitle] = useState("");
+  const [company, setCompany] = useState("");
+  const [status, setStatus] = useState("");
+  const [contact, setContact] = useState("");
+  const [date, setDate] = useState("");
+  const [note, setNote] = useState("");
+
+  
   return (
     <div>
-      <div className="bg-[#0F172A] py-[20px]">
-        <div className="container  text-xl font-bold text-white ">
-          Application:
-        </div>
+      <Navbar />
+      <div className="bg-[#0F172A] py-[20px] h-[90vh] flex flex-col items-center justify-center ">
+        <div className="text-xl font-bold text-white w-[50%]">Application:</div>
         <form
-          // method="POST"
-          // action="https://66d8318437b1cadd8053c183.mockapi.io/api/v1/crud"
-          className="border bg-white border-2 mt-[20px] py-[20px] container"
+          method="POST"
+          action="http://127.0.0.1:8000/create/"
+          className="border bg-white border-2 mt-[20px] py-[20px]  w-[50%]"
         >
-          <div className="grid grid-cols-4 container gap-[20px]">
+          <div className="grid grid-cols-2 container gap-[20px]">
             <div className="mb-3 flex flex-col">
               <label htmlFor="title" className="form-label">
                 Job title:
@@ -115,11 +123,13 @@ export default function Create() {
               />
             </div>
           </div>
-          <div className="container flex justify-end">
+          <div className="container flex justify-end gap-[20px]">
+            <Link to="/tracking">
+              <button className="btn btn-primary">Back</button>
+            </Link>
             <button
               type="submit"
-              className="btn btn-primary"
-              onClick={handleCreate}
+              className="btn btn-success"
             >
               Create
             </button>
@@ -127,6 +137,5 @@ export default function Create() {
         </form>
       </div>
     </div>
-  )
+  );
 }
-

@@ -209,7 +209,7 @@ def react_api(request):
     react=list(re)
     return JsonResponse(react,safe=False)
 
-def tracking(request):
+def create(request):
     if request.method=='POST':
         title=request.POST.get('title')
         company=request.POST.get('company')
@@ -230,6 +230,9 @@ def tracking(request):
         return redirect('/tracking')
     
 
+def tracking(request):
+    return redirect('/tracking')
+
 def tracking_api(request):
     trace=Tracking.objects.all().values()
     track=list(trace)
@@ -238,6 +241,21 @@ def tracking_api(request):
 def details(request):
     return redirect('/details')
 
+def update(request):
+    return redirect('/tracking')
 
 def resumeTemplate(request):
     return redirect('/resumeTemplate')
+
+def track_api(request,id):
+    tracker=Tracking.objects.get(id=id)
+    track={
+        'id':tracker.id,
+        'title':tracker.title,
+        'company':tracker.company,
+        'contact':tracker.contact,
+        'status':tracker.status,
+        'date':tracker.date,
+        'note':tracker.note,
+    }
+    return JsonResponse(track,safe=False)

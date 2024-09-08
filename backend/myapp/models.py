@@ -45,7 +45,7 @@ class Tracking(models.Model):
     title=models.CharField(max_length=20)
     company=models.CharField(max_length=20)
     status=models.CharField(max_length=20)
-    contact=models.IntegerField()
+    contact=models.CharField(max_length=100)
     date=models.DateField()
     note=models.TextField()
 

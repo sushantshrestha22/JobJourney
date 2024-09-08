@@ -23,7 +23,7 @@ export default function Navbar() {
         <NavLink to="/resource" className="no-underline text-white">
           Resource
         </NavLink>
-        <NavLink to="/jobtracking" className="no-underline text-white">
+        <NavLink to="/tracking" className="no-underline text-white">
           Jobtracking
         </NavLink>
       </div>

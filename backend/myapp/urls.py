@@ -19,7 +19,10 @@ urlpatterns = [
     path('details/',views.details,name='details'),
     path('tracking/',views.tracking,name='tracking'),
     path('api/tracking/',views.tracking_api,name='tracking_api'),
+    path('api/tracking/<int:id>',views.track_api,name='track_api'),
     path('resumeTemplate/',views.resumeTemplate,name='resumeTemplate'),
+    path('create/',views.create,name='create'),
+    path('update/',views.update,name='update'),
     #  path('api/update-index/', views.update_index, name='update_index'),
     # path('api/search-jobs/', views.search_jobs, name='search_jobs'),
 
