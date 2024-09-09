@@ -235,6 +235,19 @@ def tracking_api(request):
     track=list(trace)
     return JsonResponse(track,safe=False)
 
+def track_api(request,id):
+    tracker=Tracking.objects.get(id=id)
+    track={
+        'id':tracker.id,
+        'title':tracker.title,
+        'company':tracker.company,
+        'contact':tracker.contact,
+        'status':tracker.status,
+        'date':tracker.date,
+        'note':tracker.note,
+    }
+    return JsonResponse(track,safe=False)
+
 def details(request):
     return redirect('/details')
 
