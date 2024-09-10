@@ -410,6 +410,7 @@ export default function Resume() {
             </div>
           </form>
         </div>
+   
         <Footer />
       </div>
     </>

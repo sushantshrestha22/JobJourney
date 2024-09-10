@@ -3,13 +3,15 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import *
-from django.http import JsonResponse
+from django.http import JsonResponse, QueryDict
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import re
 import json
 from .algorithm import *
+from django.views.decorators.http import require_http_methods
+
 
 
 # Create your views here.
@@ -209,7 +211,7 @@ def react_api(request):
     react=list(re)
     return JsonResponse(react,safe=False)
 
-def tracking(request):
+def create(request):
     if request.method=='POST':
         title=request.POST.get('title')
         company=request.POST.get('company')
@@ -229,11 +231,40 @@ def tracking(request):
         track.save()
         return redirect('/tracking')
     
+    
+
+def tracking(request):
+    return redirect('/tracking')
 
 def tracking_api(request):
     trace=Tracking.objects.all().values()
     track=list(trace)
     return JsonResponse(track,safe=False)
+
+
+def track_api(request,id):
+    tracker=Tracking.objects.get(id=id)
+    track={
+            'id':tracker.id,
+            'title':tracker.title,
+            'company':tracker.company,
+            'contact':tracker.contact,
+            'status':tracker.status,
+            'date':tracker.date,
+            'note':tracker.note,
+        }
+    return JsonResponse(track,safe=False)
+    
+
+   
+    
+def details(request):
+    return redirect('/details')
+
+
+
+def resumeTemplate(request):
+    return redirect('/resumeTemplate')
 
 def track_api(request,id):
     tracker=Tracking.objects.get(id=id)
@@ -248,9 +279,44 @@ def track_api(request,id):
     }
     return JsonResponse(track,safe=False)
 
-def details(request):
-    return redirect('/details')
+
+def edit(request,id):
+    data = Tracking.objects.get(id=id)
+    
+    if request.method == 'PUT':  # Use PUT since you're updating data
+        
+            # Parse JSON data from the request body
+            body = json.loads(request.body.decode('utf-8'))
+            
+            title = body.get('title')
+            company = body.get('company')
+            status = body.get('status')
+            contact = body.get('contact')
+            date = body.get('date')
+            note = body.get('note')
+            
+            # Update the fields if data is present
+            if title: data.title = title
+            if company: data.company = company
+            if status: data.status = status
+            if contact: data.contact = contact
+            if date: data.date = date
+            if note: data.note = note
+            
+            # Save the updated object
+            data.save()
+
+            return JsonResponse({"success": True, "message": "Update successful!"})
+    
+
+def delete(request,id):
+        data = Tracking.objects.get(id=id)
+        data.delete()
+        
+
+       
 
 
-def resumeTemplate(request):
-    return redirect('/resumeTemplate')
+
+
+

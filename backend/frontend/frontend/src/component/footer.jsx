@@ -4,16 +4,17 @@ import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { IoLogoYoutube } from "react-icons/io";
-export default function footer() {
+import { Link } from "react-router-dom";
+export default function Footer() {
   return (
     <div className="bg-[#0F172A] text-white box-border flex flex-col items-center justify-center gap-5 text-xl h-[50vh]">
       <div className="flex gap-5">
 
-      <div>Home</div>
-      <div>Resume</div>
-      <div>JobPost</div>
-      <div>Resource</div>
-      <div>Jobtracking</div>
+      <Link to="/home" className="text-white">Home</Link>
+      <Link to="/resume" className="text-white">Resume</Link>
+      <Link to="/jobpost" className="text-white">JobPost</Link>
+      <Link to="/resource" className="text-white">Resource</Link>
+      <Link to="/tracking" className="text-white">Jobtracking</Link>
       </div>
       <div className="flex gap-5">
         <FaFacebook className="h-[30px] w-[30px]"/>

@@ -103,7 +103,7 @@ const JobSearch = () => {
                 className="container flex w-[80%] justify-evenly "
               >
                 <div className="bg-white rounded-md border border-2 border-black w-full h-[50vh] p-3 text-white ">
-                  <div className="px-[20px] rounded bg-[#0F172A] h-[35vh] flex flex-col justify-center gap-[20px] ">
+                  <div className="px-[20px] px-[10px] rounded bg-[#0F172A]  flex flex-col justify-center gap-[20px] ">
                     <div className="flex ">
                       <div className="text-lg">{post.company_name}</div>
                     </div>

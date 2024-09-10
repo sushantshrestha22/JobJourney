@@ -4,171 +4,40 @@ import Footer from "./footer";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function JobTracking() {
-  const [title, setTitle] = useState("");
-  const [company, setCompany] = useState("");
-  const [status, setStatus] = useState("");
-  const [contact, setContact] = useState("");
-  const [date, setDate] = useState("");
-  const [note, setNote] = useState("");
-
   const [data, setData] = useState([]);
 
-  const hello = useNavigate();
+  const navigate = useNavigate();
 
- 
-  const handleEdit = () => {
-    hello("/update");
-  };
-
-  const handleDelete = (message) => {
-    axios
-      .delete(
-        `http://127.0.0.1:8000/api/tracking/${message}`
-      ).then((res)=>{
-        setData(res.data);
-      });
-      
+  const handleClick = (id) => {
+    navigate("/update/" + id);
   };
 
   useEffect(() => {
+    axios.get("http://127.0.0.1:8000/api/tracking/").then((res) => {
+      setData(res.data);
+    });
+  }, []);
+
+  const handleDelete = (id) => {
     axios
-      .get("http://127.0.0.1:8000/api/tracking/")
-      .then((res) => {
-        setData(res.data);
-      });
-  }, [data]);
+      .delete(`http://127.0.0.1:8000/delete/${id}`)
+      .then(navigate("/tracking"));
+  };
+  
 
   return (
     <>
       <Navbar />
+
       <div className="bg-[#0F172A] py-[20px]">
-        <div className="container  text-xl font-bold text-white ">
-          Application:
-        </div>
-        <form
-          method="POST"
-          action="http://127.0.0.1:8000/tracking/"
-          className="border bg-white border-2 mt-[20px] py-[20px] container"
-        >
-          <div className="grid grid-cols-4 container gap-[20px]">
-            <div className="mb-3 flex flex-col">
-              <label htmlFor="title" className="form-label">
-                Job title:
-              </label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="enter job title"
-                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-                value={title}
-                required
-              />
-            </div>
-            <div className="mb-3 flex flex-col">
-              <label htmlFor="company" className="form-label">
-                Company:
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                placeholder="enter company name"
-                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
-                onChange={(e) => {
-                  setCompany(e.target.value);
-                }}
-                value={company}
-                required
-              />
-            </div>
-            <div className="mb-3 flex flex-col">
-              <label htmlFor="status" className="form-label">
-                Status:
-              </label>
-              <input
-                type="text"
-                id="status"
-                name="status"
-                placeholder="enter your status"
-                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
-                onChange={(e) => {
-                  setStatus(e.target.value);
-                }}
-                value={status}
-                required
-              />
-            </div>
-            <div className="mb-3 flex flex-col">
-              <label htmlFor="date" className="form-label">
-                Date Applied:
-              </label>
-              <input
-                type="date"
-                id="date"
-                name="date"
-                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
-                onChange={(e) => {
-                  setDate(e.target.value);
-                }}
-                value={date}
-                required
-              />
-            </div>
-            <div className="mb-3 flex flex-col">
-              <label htmlFor="contact" className="form-label">
-                Contact Info:
-              </label>
-              <input
-                type="number"
-                id="contact"
-                name="contact"
-                placeholder="enter your contact details"
-                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
-                onChange={(e) => {
-                  setContact(e.target.value);
-                }}
-                value={contact}
-                required
-              />
-            </div>
-            <div className="mb-3 flex flex-col">
-              <label htmlFor="note" className="form-label">
-                Note:
-              </label>
-              <input
-                type="text"
-                id="note"
-                name="note"
-                placeholder="enter note"
-                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
-                onChange={(e) => {
-                  setNote(e.target.value);
-                }}
-                value={note}
-                required
-              />
-            </div>
-          </div>
-          <div className="container flex justify-end">
-            <button
-              type="submit"
-              className="btn btn-primary"
-            >
-              Create
-            </button>
-          </div>
-        </form>
-      </div>
-      <div className="bg-[#0F172A] py-[20px]">
-        <div className="container  text-xl font-bold text-white ">
-          Job Tracking Sheet:
+        <div className="container flex justify-between  text-xl font-bold text-white ">
+          <div>Job Tracking Sheet:</div>
+          <Link to="/create">
+            <button className="btn btn-success">create</button>
+          </Link>
         </div>
         <div className="border bg-white border-2 mt-[20px] py-[20px] container">
           <table className="table">
@@ -184,26 +53,32 @@ export default function JobTracking() {
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="w-[100%]">
               {data.map((items, index) => {
                 return (
-                  <tr key={index}>
-                    <th scope="row">{items.id}</th>
+                  <tr key={index} className="w-[100%]">
+                    <th scope="row">{index + 1}</th>
                     <td>{items.title}</td>
                     <td>{items.company}</td>
                     <td>{items.status}</td>
                     <td>{items.date}</td>
                     <td>{items.contact}</td>
-                    <td>{items.note}</td>
+                    <td className="w-[30%]">{items.note}</td>
                     <td>
-                      <FaEdit
-                        className="h-[30px] w-[30px]"
-                        onClick={handleEdit}
-                      />
-                      <MdDelete
-                        className="h-[30px] w-[30px] text-red-600"
-                        onClick={() => handleDelete(index)}
-                      />
+                      <Link to={`/update/${items.id}`}>
+                        <button>
+                          <FaEdit className="h-[30px] w-[30px]" />
+                        </button>
+                      </Link>
+
+
+                      <button>
+                        <MdDelete
+                          className="h-[30px] w-[30px] text-red-600"
+                          onClick={() => handleDelete(items.id)}
+                        />
+                      </button>
+
                     </td>
                   </tr>
                 );

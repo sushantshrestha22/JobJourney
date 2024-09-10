@@ -19,6 +19,11 @@ admin.site.register(Resume)
 admin.site.register(ResourcePython)
 admin.site.register(ResourceReact)
 
-admin.site.register(Tracking)
+class TrackingAdmin(admin.ModelAdmin):
+    list_display = ('title', 'company', 'status', 'date')  # Fields to show in the list view
+
+admin.site.register(Tracking, TrackingAdmin)
+
+
 
 
