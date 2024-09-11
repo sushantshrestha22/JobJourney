@@ -35,7 +35,7 @@ export default function ResumeTemplate() {
               <div className="w-[25%] flex flex-col h-[100%]  justify-evenly items-center gap-[10px] py-[10px]">
                 <div className="w-[200px] h-[200px]  border-2 border-dotted flex flex-col justify-center items-center border">
                   <img
-                    src={lastItem.profile_image}
+                    src={`http://127.0.0.1:8000/media/${lastItem.profile_image}`}
                     alt="error"
                     className="w-[150px] h-[150px]"
                   />
