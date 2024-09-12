@@ -4,9 +4,7 @@ import Ads from "./Ads";
 import PythonCover from "../image/PythonCover.png"
 import UIUX from "../image/Logo.png";
 import ReactPlayer from "react-player";
-import { FaCircleUser } from "react-icons/fa6";
-import { AiFillLike } from "react-icons/ai";
-import { AiFillDislike } from "react-icons/ai";
+
 
 // http://127.0.0.1:8000/api/python/ 
 

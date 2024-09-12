@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 export default function Create() {
@@ -9,7 +9,6 @@ export default function Create() {
   const [date, setDate] = useState("");
   const [note, setNote] = useState("");
 
-  
   return (
     <div>
       <Navbar />
@@ -55,23 +54,27 @@ export default function Create() {
                 required
               />
             </div>
-            <div className="mb-3 flex flex-col">
+            <div className="mb-3 flex flex-col ">
               <label htmlFor="status" className="form-label">
                 Status:
               </label>
-              <input
-                type="text"
-                id="status"
+              <select
                 name="status"
-                placeholder="enter your status"
+                id="status"
                 className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
                 onChange={(e) => {
                   setStatus(e.target.value);
                 }}
                 value={status}
-                required
-              />
+              >
+                <option value="part-time">Applied</option>
+                <option value="interview schedule">Interview Schedule</option>
+                <option value="pending">Pending</option>
+                <option value="withdrawn">Withdrawn</option>
+                <option value="completed">Completed</option>
+              </select>
             </div>
+
             <div className="mb-3 flex flex-col">
               <label htmlFor="date" className="form-label">
                 Date Applied:
@@ -127,10 +130,7 @@ export default function Create() {
             <Link to="/tracking">
               <button className="btn btn-primary">Back</button>
             </Link>
-            <button
-              type="submit"
-              className="btn btn-success"
-            >
+            <button type="submit" className="btn btn-success">
               Create
             </button>
           </div>

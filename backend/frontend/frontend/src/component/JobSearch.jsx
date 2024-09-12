@@ -43,7 +43,7 @@ const JobSearch = () => {
             id="jobtitle"
             name="jobtitle"
             className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-            placeholder="Enter your job title"
+            placeholder="Enter your skills"
           />
           <input
             type="text"
@@ -61,7 +61,7 @@ const JobSearch = () => {
             id="skill"
             name="skill"
             className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-            placeholder="enter skills"
+            placeholder="enter job title"
             onChange={(e) => {
               setSearch1(e.target.value);
             }}
@@ -102,8 +102,8 @@ const JobSearch = () => {
                 key={index}
                 className="container flex w-[80%] justify-evenly "
               >
-                <div className="bg-white rounded-md border border-2 border-black w-full h-[50vh] p-3 text-white ">
-                  <div className="px-[20px] px-[10px] rounded bg-[#0F172A]  flex flex-col justify-center gap-[20px] ">
+                <div className="bg-white rounded-md border border-2 border-black w-full  p-3 text-white ">
+                  <div className="p-[20px]  rounded bg-[#0F172A]  flex flex-col justify-center gap-[20px] ">
                     <div className="flex ">
                       <div className="text-lg">{post.company_name}</div>
                     </div>
@@ -132,12 +132,10 @@ const JobSearch = () => {
                       <div>{post.location}</div>
                     </div>
                     <Link to={`/details/${post.id}`}>
-                      <button className=" text-lg rounded bg-[#0F172A] border-none py-1 px-4 text-white"
-                      >
+                      <button className=" text-lg rounded bg-[#0F172A] border-none py-1 px-4 text-white">
                         Details
                       </button>
                     </Link>
-
                   </div>
                 </div>
               </div>

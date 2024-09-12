@@ -4,29 +4,24 @@ import Footer from "./footer";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export default function JobTracking() {
   const [data, setData] = useState([]);
 
-  const navigate = useNavigate();
-
-  const handleClick = (id) => {
-    navigate("/update/" + id);
-  };
-
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/tracking/").then((res) => {
       setData(res.data);
+      const list = res.data;
+      console.log(list[0].status);
     });
   }, []);
 
   const handleDelete = (id) => {
     axios
       .delete(`http://127.0.0.1:8000/delete/${id}`)
-      .then(navigate("/tracking"));
+      .then(window.location.reload());
   };
-  
 
   return (
     <>
@@ -60,25 +55,31 @@ export default function JobTracking() {
                     <th scope="row">{index + 1}</th>
                     <td>{items.title}</td>
                     <td>{items.company}</td>
-                    <td>{items.status}</td>
+                    <td>
+                      <div
+                        // className={`{}
+                        //   border-primary bg-primary rounded text-white`}
+                        className={getStatusClass(items.status)}
+                      >
+                        {items.status}
+                      </div>
+                    </td>
                     <td>{items.date}</td>
                     <td>{items.contact}</td>
                     <td className="w-[30%]">{items.note}</td>
                     <td>
                       <Link to={`/update/${items.id}`}>
-                        <button>
+                        <button className="border-none bg-transparent">
                           <FaEdit className="h-[30px] w-[30px]" />
                         </button>
                       </Link>
 
-
-                      <button>
+                      <button className="border-none bg-transparent ">
                         <MdDelete
                           className="h-[30px] w-[30px] text-red-600"
                           onClick={() => handleDelete(items.id)}
                         />
                       </button>
-
                     </td>
                   </tr>
                 );
@@ -90,4 +91,20 @@ export default function JobTracking() {
       <Footer />
     </>
   );
+}
+
+function getStatusClass(status) {
+  switch (status) {
+    case "completed":
+      return "border border-2 bg-transparent border-success rounded-lg w-[90%] text-center text-success ";
+    case "applied":
+      return "border border-2 bg-transparent border-secondary rounded-lg w-[90%] text-center text-secondary  ";
+    case "interview schedule":
+      return "border border-2 bg-transparent border-primary rounded-lg w-[90%] text-center text-primary";
+    case "pending":
+      return "border border-2 bg-transparent border-warning rounded-lg w-[90%] text-center text-warning";
+    case "withdrawn":
+      return "border border-2 bg-transparent border-danger rounded-lg w-[90%] text-center text-danger";
+      default:
+  }
 }

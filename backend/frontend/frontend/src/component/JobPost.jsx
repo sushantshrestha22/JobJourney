@@ -4,15 +4,34 @@ import Footer from "./footer";
 import { MdDelete } from "react-icons/md";
 
 export default function JobPost() {
-  const [skill, setSkill] = useState([""]);
+const[company,setCompany]= useState('');
+const[jobname,setJobname]= useState('');
+const[location,setLocation]= useState('');
+const[salary,setSalary]= useState('');
+const[requirement,setRequirement]= useState('');
+const[description,setDescription]= useState('');
+const[email,setEmail]= useState('');
+const[phone,setPhone]= useState('');
+const[skill,setSkill]= useState('');
+const [skills, setSkills] = useState([""]);
+
+function handelClick(){
+if(company==="" || jobname==="" ||location==="" ||salary==="" ||requirement==="" ||description==="" ||email==="" ||phone==="" ||skill===""){
+alert("error")
+}else{
+  alert("successfully submitted")
+}
+}
+
   function handelClick2() {
-    setSkill([...skill, ""]);
+    setSkills([...skills, ""]);
   }
   function handelDelete2(item, index) {
-    const List = [...skill];
+    const List = [...skills];
     List.splice(index, 1);
-    setSkill(List);
+    setSkills(List);
   }
+
 
   return (
     <div className="w-full bg-[#0F172A]">
@@ -43,6 +62,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your company name"
                   required
+                  value={company}
+                  onChange={(e)=>{setCompany(e.target.value)}}
                 />
               </div>
               <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
@@ -56,6 +77,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job title"
                   required
+                  value={jobname}
+                  onChange={(e)=>{setJobname(e.target.value)}}
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -69,6 +92,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your address"
                   required
+                  value={location}
+                  onChange={(e)=>{setLocation(e.target.value)}}
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -82,6 +107,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Job salary in multiple of 1000"
                   required
+                  value={salary}
+                  onChange={(e)=>{setSalary(e.target.value)}}
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -95,6 +122,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="enter the requirement for job "
                   required
+                  value={requirement}
+                  onChange={(e)=>{setRequirement(e.target.value)}}
                 />
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
@@ -108,6 +137,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your job description"
                   required
+                  value={description}
+                  onChange={(e)=>{setDescription(e.target.value)}}
                 />
               </div>
             </div>
@@ -143,7 +174,7 @@ export default function JobPost() {
                     Skills <sup className="text-xl font-bold">*</sup>
                   </label>
                   <div className="flex flex-col gap-[10px]">
-                    {skill.map((item, i) => {
+                    {skills.map((item, i) => {
                       return (
                         <div className="flex gap-[10px] justify-center items-center">
                           <input
@@ -154,13 +185,15 @@ export default function JobPost() {
                             name="skill"
                             placeholder="Enter your skill"
                             required
+                            value={skill}
+                  onChange={(e)=>{setSkill(e.target.value)}}
                           />
                         </div>
                       );
                     })}
                   </div>
                   <div className="my-[20px] flex gap-[20px] juistify-center items-center">
-                    {skill.length > 1 && (
+                    {skills.length > 1 && (
                       <button
                         onClick={handelDelete2}
                         className="h-[40px] w-[75px] text-lg rounded  bg-red-200 border-none  text-[#0F172A] font-semibold"
@@ -168,7 +201,7 @@ export default function JobPost() {
                         <MdDelete className="h-[30px] w-[30px]" />
                       </button>
                     )}
-                    {skill.length < 5 && (
+                    {skills.length < 5 && (
                       <button
                         onClick={handelClick2}
                         className="h-[40px] w-[75px] text-lg rounded bg-blue-200 border-none text-[#0F172A] font-semibold"
@@ -189,6 +222,7 @@ export default function JobPost() {
                   name="language"
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your languages"
+                
                 />
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -201,15 +235,8 @@ export default function JobPost() {
                 >
                   <option value="part-time">Part-time</option>
                   <option value="full-time">Full-time</option>
-                  <option value="freelance">Freelance</option>
+                  <option value="freelance" selected>Freelance</option>
                 </select>
-                {/* <input
-                  type="text"
-                  id="jobtype"
-                  name="jobtype"
-                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  placeholder="Enter your job type"
-                /> */}
               </div>
             </div>
           </div>
@@ -231,6 +258,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your email"
                   required
+                  value={email}
+                  onChange={(e)=>{setEmail(e.target.value)}}
                 />
               </div>
               <div className="text-[#0F172A] text-xl  font-bold flex flex-col gap-3 ">
@@ -244,6 +273,8 @@ export default function JobPost() {
                   className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                   placeholder="Enter your phone number"
                   required
+                  value={phone}
+                  onChange={(e)=>{setPhone(e.target.value)}}
                 />
               </div>
             </div>
@@ -251,6 +282,7 @@ export default function JobPost() {
           <div className="flex justify-end">
             <button
               type="submit"
+              onClick={handelClick}
               className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold"
             >
               Add Post

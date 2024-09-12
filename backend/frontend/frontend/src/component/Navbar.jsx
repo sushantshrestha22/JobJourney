@@ -1,31 +1,35 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../App.css";
+import { MdOutlineLogout } from "react-icons/md";
 
 export default function Navbar() {
   return (
     <nav className="flex items-center text-white justify-between h-[8vh] sticky top-0 bg-[#0F172A] border-bottom box-border w-full">
       <div className="lg-px-[30px] text-3xl font-bold px-[50px] ">
-        <NavLink to="/home" className="no-underline text-white">
+        <Link to="/home" className="no-underline text-white flex text-3xl items-center">
           JobJourney
-        </NavLink>
+        </Link>
       </div>
-      <div className="flex gap-[50px] font-semibold px-[50px] lg:text-xl">
-        <NavLink to="/home" className="no-underline text-white">
+      <div className="flex gap-[50px] font-semibold px-[50px] ">
+        <Link to="/home" className="no-underline text-white flex items-center xl:text-xl">
           Home
-        </NavLink>
-        <NavLink to="/resume" className="no-underline text-white">
+        </Link>
+        <Link to="/resume" className="no-underline text-white flex items-center xl:text-xl">
           Resume
-        </NavLink>
-        <NavLink to="/jobpost" className="no-underline text-white">
+        </Link>
+        <Link to="/jobpost" className="no-underline text-white flex items-center xl:text-xl">
           JobPost
-        </NavLink>
-        <NavLink to="/resource" className="no-underline text-white">
+        </Link>
+        <Link to="/resource" className="no-underline text-white flex items-center xl:text-xl">
           Resource
-        </NavLink>
-        <NavLink to="/tracking" className="no-underline text-white">
+        </Link>
+        <Link to="/tracking" className="no-underline text-white flex items-center xl:text-xl">
           Jobtracking
-        </NavLink>
+        </Link>
+        <Link to="/" className="no-underline text-white flex items-center">
+         <button className="btn btn-info text-white flex items-center">Sign Out<MdOutlineLogout className="h-[20px] w-[20px] ms-[5px]"/></button>
+        </Link>
       </div>
     </nav>
   );

@@ -1,50 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
-import { MdDelete } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 export default function Resume() {
-
-
-  const [experience, setExperience] = useState([""]);
-  const [skill, setSkill] = useState([""]);
-  const [education, setEducation] = useState([""]);
-  const [hobbies, setHobbies] = useState([""]);
-  function handelClick1() {
-    setExperience([...experience, ""]);
-  }
-  function handelClick2() {
-    setSkill([...skill, ""]);
-  }
-  function handelClick3() {
-    setEducation([...education, ""]);
-  }
-  function handelClick4() {
-    setHobbies([...hobbies, ""]);
-  }
-
-  function handelDelete1(item, index) {
-    const List = [...experience];
-    List.splice(index, 1);
-    setExperience(List);
-  }
-  function handelDelete2(item, index) {
-    const List = [...skill];
-    List.splice(index, 1);
-    setSkill(List);
-  }
-  function handelDelete3(item, index) {
-    const List = [...education];
-    List.splice(index, 1);
-    setEducation(List);
-  }
-  function handelDelete4(item, index) {
-    const List = [...hobbies];
-    List.splice(index, 1);
-    setHobbies(List);
-  }
-
   return (
     <>
       <div className="w-full bg-[#0F172A] ">
@@ -388,20 +346,6 @@ export default function Resume() {
                 />
               </div>
 
-
-              <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3 ">
-                <label htmlFor="profile_image">
-                  Upload Profile Image<sup className="text-xl font-bold">*</sup>
-                </label>
-                <input
-                  type="file"
-                  id="profile_image"
-                  name="profile_image"
-                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
-                  accept="image/*"
-                  required
-                />
-              </div>
             </div>
             <div className="flex justify-end">
               <button type="submit" className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">

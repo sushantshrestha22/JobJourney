@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
 // import axios from "axios";
@@ -20,7 +20,7 @@ export default function Detail({ company_name, job_name, location, requirement, 
           JOB DETAILS
         </div>
         <div className="container w-[60%] text-[#0F172A]  mt-[20px] py-[20px] bg-white shadow">
-          <div className="  grid grid-cols-3 -2 px-[20px] pb-[20px] gap-y-[30px] gap-x-[10%]">
+          <div className="  grid grid-cols-4 px-[20px] pb-[20px] gap-y-[30px] gap-x-[10%]">
             <div className="flex flex-col justify-center  ">
               <div className="text-xl font-bold">Company name:</div>
               <div className="text-lg">{company_name}</div>
@@ -81,7 +81,7 @@ export default function Detail({ company_name, job_name, location, requirement, 
 
 
 
-        <div className="container flex justify-center mt-[20px]">
+        <div className="container flex justify-end mt-[20px]">
           <button className="btn btn-info text-white">Apply Now</button>
         </div>
 

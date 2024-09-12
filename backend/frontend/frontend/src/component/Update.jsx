@@ -37,6 +37,9 @@ export default function Update({
         console.log("Update successful:", response.data);
         navigate("/tracking");
       })
+      .catch(
+        setError("error")
+      )
   };
 
   return (
@@ -82,21 +85,28 @@ export default function Update({
                   required
                 />
               </div>
-              <div className="mb-3 flex flex-col">
-                <label htmlFor="status" className="form-label">
-                  Status:
-                </label>
-                <input
-                  type="text"
-                  id="status"
-                  name="status"
-                  placeholder="enter your status"
-                  className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2 rounded outline-none"
-                  onChange={(e) => setStatus(e.target.value)}
-                  value={status}
-                  required
-                />
-              </div>
+              
+              
+              <div className="mb-3 flex flex-col ">
+              <label htmlFor="status" className="form-label">
+                Status:
+              </label>
+              <select
+                name="status"
+                id="status"
+                className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-1 px-2  rounded outline-none"
+                onChange={(e) => {
+                  setStatus(e.target.value);
+                }}
+                value={status}
+              >
+                <option value="part-time">Applied</option>
+                <option value="interview schedule">Interview Schedule</option>
+                <option value="pending">Pending</option>
+                <option value="withdrawn">Withdrawn</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
               <div className="mb-3 flex flex-col">
                 <label htmlFor="date" className="form-label">
                   Date Applied:

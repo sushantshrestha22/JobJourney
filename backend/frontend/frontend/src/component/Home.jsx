@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Home_Img from "../image/home.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./footer";
