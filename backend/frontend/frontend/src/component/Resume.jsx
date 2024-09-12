@@ -156,61 +156,61 @@ export default function Resume() {
                 <hr></hr>
               </div>
               <div className="grid grid-cols-1 gap-10">
-                
-                  
-                    <div
-                      className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
-                      
-                    >
-                      <div className="flex gap-[20px] justify-center items-center ">
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
-                          <label htmlFor="startDate">StartDate:</label>
-                          <input
-                            type="date"
-                            id="startDate"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="startDate"
-                            required
-                          />
-                        </div>
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="endDate">EndDate:</label>
-                          <input
-                            type="date"
-                            id="endDate"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="endDate"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="flex gap-[20px] justify-center items-center">
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="institution">Institution:</label>
-                          <input
-                            type="text"
-                            id="institution"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="institution"
-                            required
-                          />
-                        </div>
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="degree">Degree:</label>
-                          <input
-                            type="text"
-                            id="degree"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="degree"
-                            required
-                          />
-                        </div>
-                      </div>
+
+
+                <div
+                  className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
+
+                >
+                  <div className="flex gap-[20px] justify-center items-center ">
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
+                      <label htmlFor="startDate">StartDate:</label>
+                      <input
+                        type="date"
+                        id="startDate"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="startDate"
+                        required
+                      />
                     </div>
-                
-                
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                      <label htmlFor="endDate">EndDate:</label>
+                      <input
+                        type="date"
+                        id="endDate"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="endDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-[20px] justify-center items-center">
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                      <label htmlFor="institution">Institution:</label>
+                      <input
+                        type="text"
+                        id="institution"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="institution"
+                        required
+                      />
+                    </div>
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                      <label htmlFor="degree">Degree:</label>
+                      <input
+                        type="text"
+                        id="degree"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="degree"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+
               </div>
-             
+
             </div>
 
             <div>
@@ -219,71 +219,71 @@ export default function Resume() {
                 <hr></hr>
               </div>
               <div className="grid grid-cols-1 gap-10">
-                
-                  
-                    <div
-                      className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
-                      
-                    >
-                      <div className="flex gap-[20px] justify-center items-center ">
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
-                          <label htmlFor="startDate1">StartDate:</label>
-                          <input
-                            type="date"
-                            id="startDate1"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="startDate1"
-                            required
-                          />
-                        </div>
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="endDate1">EndDate:</label>
-                          <input
-                            type="date"
-                            id="endDate1"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="endDate1"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="flex gap-[20px] justify-center items-center">
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="company">Company:</label>
-                          <input
-                            type="text"
-                            id="company"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="company"
-                            required
-                          />
-                        </div>
-                        <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                          <label htmlFor="position">Position:</label>
-                          <input
-                            type="text"
-                            id="position"
-                            className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                            name="position"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="w-50 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
-                        <label htmlFor="wdescription">Description:</label>
-                        <input
-                          type="text"
-                          id="wdescription"
-                          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
-                          name="wdescription"
-                          required
-                        />
-                      </div>
+
+
+                <div
+                  className="flex flex-col gap-[10px] border-[#0F172A] border-2 border p-[20px] "
+
+                >
+                  <div className="flex gap-[20px] justify-center items-center ">
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3 ">
+                      <label htmlFor="startDate1">StartDate:</label>
+                      <input
+                        type="date"
+                        id="startDate1"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="startDate1"
+                        required
+                      />
                     </div>
-                  
-                
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                      <label htmlFor="endDate1">EndDate:</label>
+                      <input
+                        type="date"
+                        id="endDate1"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="endDate1"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-[20px] justify-center items-center">
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                      <label htmlFor="company">Company:</label>
+                      <input
+                        type="text"
+                        id="company"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="company"
+                        required
+                      />
+                    </div>
+                    <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                      <label htmlFor="position">Position:</label>
+                      <input
+                        type="text"
+                        id="position"
+                        className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                        name="position"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="w-50 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
+                    <label htmlFor="wdescription">Description:</label>
+                    <input
+                      type="text"
+                      id="wdescription"
+                      className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
+                      name="wdescription"
+                      required
+                    />
+                  </div>
+                </div>
+
+
               </div>
-              
+
             </div>
             <div className="grid grid-cols-2 gap-[20px] mt-[20px]">
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
@@ -291,47 +291,47 @@ export default function Resume() {
                   Skills <sup className="text-xl font-bold">*</sup>
                 </label>
                 <div className="flex flex-col gap-[10px]">
-                  
-                    
-                      <div className="flex gap-[10px] justify-center items-center">
-                        <input
-                
-                          type="text"
-                          id="skill"
-                          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
-                          name="skill"
-                          placeholder="Enter your skill"
-                          required
-                        />
-                      </div>
-                    
-                  
+
+
+                  <div className="flex gap-[10px] justify-center items-center">
+                    <input
+
+                      type="text"
+                      id="skill"
+                      className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                      name="skill"
+                      placeholder="Enter your skill"
+                      required
+                    />
+                  </div>
+
+
                 </div>
-                
+
               </div>
               <div className="text-[#0F172A]  text-xl font-bold flex flex-col gap-3 ">
                 <label htmlFor="hobbies">
                   Hobbies <sup className="text-xl font-bold">*</sup>
                 </label>
                 <div className="flex flex-col gap-[10px]">
-                  
-                    
-                      <div className="flex gap-[10px] justify-center items-center">
-                        <input
-                          
-                          type="text"
-                          id="hobbies"
-                          className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
-                          name="hobbies"
-                          placeholder="Enter your hobbies"
-                          required
-                        />
 
-                      </div>
-                    
-                  
+
+                  <div className="flex gap-[10px] justify-center items-center">
+                    <input
+
+                      type="text"
+                      id="hobbies"
+                      className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-100 rounded outline-none"
+                      name="hobbies"
+                      placeholder="Enter your hobbies"
+                      required
+                    />
+
+                  </div>
+
+
                 </div>
-                
+
               </div>
               <div className="text-[#0F172A] text-xl font-bold flex flex-col gap-3">
                 <label htmlFor="project">
@@ -352,9 +352,10 @@ export default function Resume() {
                 Create Resume
               </button>
             </div>
+
           </form>
         </div>
-   
+
         <Footer />
       </div>
     </>

@@ -133,7 +133,7 @@ def jobsearch(request):
 
 #resume 
 def resume(request):
-      if request.method == 'POST':
+    if request.method == 'POST':
         first_name = request.POST.get('firstname')
         last_name = request.POST.get('lastname')
         contact_number = request.POST.get('contactnumber')
@@ -144,7 +144,7 @@ def resume(request):
         project_link = request.POST.get('project')
         
         # Handle file upload
-        profile_image = request.POST.get('profile_image')
+        
 
         # Deserialize JSON fields
         language =request.POST.get('language')
@@ -162,6 +162,8 @@ def resume(request):
         company = request.POST.get('company')
         position = request.POST.get('position')
         work_description = request.POST.get('wdescription')
+
+        profile_image = request.POST.get('profile_image')
 
         # Create Resume instance and save to the database
         resume_instance = Resume(
@@ -189,6 +191,8 @@ def resume(request):
         )
         resume_instance.save()
         return redirect('/resumeTemplate')
+    else:
+        return redirect('/resume')
 
 
 def resume_api(request):

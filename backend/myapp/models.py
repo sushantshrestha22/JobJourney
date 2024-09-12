@@ -52,7 +52,6 @@ class Tracking(models.Model):
     def __str__(self) -> str:
         return self.title
     
-    
 
 # Resume
 class Resume(models.Model):
@@ -87,7 +86,7 @@ class Resume(models.Model):
     project_link = models.URLField(null=True)
 
     # File upload
-    profile_image = models.ImageField(upload_to='profile_images/',null=True)
+    profile_image = models.ImageField(upload_to='profiles/',null=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
