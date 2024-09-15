@@ -6,6 +6,8 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('home/',views.home,name='home'),
     path('register/',views.register,name='register'),
+    path('signout/', views.signout_view, name='signout'),
+    path('check_auth_status/', views.check_auth_status, name='check_auth_status'),
     path('jobpost/',views.Jobp,name='Jobp'),
     path('resume/',views.resume,name='resume'),
     path('resource/',views.resource,name='resource'),
@@ -24,6 +26,7 @@ urlpatterns = [
     path('create/',views.create,name='create'),
     path('edit/<int:id>',views.edit,name='edit'),
     path('delete/<int:id>',views.delete,name='delete'),
+      path('api/send-application-email/', views.send_application_email, name='send_application_email'),
 
     
     #  path('api/update-index/', views.update_index, name='update_index'),

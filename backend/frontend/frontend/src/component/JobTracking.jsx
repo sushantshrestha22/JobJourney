@@ -34,7 +34,9 @@ export default function JobTracking() {
             <button className="btn btn-success">create</button>
           </Link>
         </div>
+
         <div className="border bg-white border-2 mt-[20px] py-[20px] container">
+          
           <table className="table">
             <thead>
               <tr>

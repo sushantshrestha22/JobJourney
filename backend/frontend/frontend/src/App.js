@@ -52,14 +52,14 @@ function App() {
           <Route path="/tracking" element={<JobTracking />} />
           <Route path="/resume" element={<Resume />} />
           {/* <Route path="/update" element={<Update />} /> */}
-          <Route path="/create" element={<Create/>} />
-          <Route path="/update/:id" element={<Update/>} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/update/:id" element={<Update />} />
           <Route path="/resumeTemplate" element={<ResumeTemplate />} />
           <Route path="/resource" element={<Resource />} />
 
           {
             data.map((item, index) => {
-              return <Route path={`/details/${item.id}`} element={<Detail key={item.id} company_name={item.company_name} job_name={item.job_name} location={item.location} description={item.description} salary={item.salary} experience_level={item.experience_level} skills={item.skills} language={item.language} job_type={item.job_type} requirement={item.requirement} email={item.email} phone={item.phone} />} />
+              return <Route path={`/details/${item.id}`} element={<Detail key={item.id} company_name={item.company_name} job_name={item.job_name} location={item.location} description={item.description} salary={item.salary} experience_level={item.experience_level} skills={item.skills} language={item.language} job_type={item.job_type} requirement={item.requirement} email={item.email} phone={item.phone} id={item.id} />} />
             })
           }
           {

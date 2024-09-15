@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home_Img from "../image/home.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./footer";
@@ -7,9 +7,27 @@ import { MdArtTrack } from "react-icons/md";
 import { BiSolidDetail } from "react-icons/bi";
 import { GrResources } from "react-icons/gr";
 import Navbar from "./Navbar";
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
- 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is logged in by making an API call
+    const checkAuthStatus = async () => {
+      const response = await fetch('/check-auth-status/');
+      const data = await response.json();
+
+      if (!data.logged_in) {
+        // If user is not logged in, redirect to login page
+        navigate('/');
+      }
+    };
+
+    checkAuthStatus();
+  }, [navigate]);
+
+
 
   const card = [
     {
@@ -75,7 +93,7 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-white flex justify-center gap-[50px] h-[50vh] items-center">
-        {card.map((data,i) => {
+        {card.map((data, i) => {
           return (
             <div key={i} className="bg-[#0F172A] text-white w-[30%] rounded h-[40vh] flex gap-[20px] flex-col items-center justify-center p-[20px]">
               <div className="">{data.logo}</div>

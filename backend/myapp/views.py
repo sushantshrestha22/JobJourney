@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
+from django.contrib.auth import logout
+from django.views.decorators.cache import cache_control
 from django.contrib import messages
 from .models import *
 from django.http import JsonResponse, QueryDict
@@ -10,7 +12,15 @@ from rest_framework.decorators import api_view
 import re
 import json
 from .algorithm import *
-from django.views.decorators.http import require_http_methods
+from rest_framework.decorators import api_view, permission_classes
+from django.core.mail import send_mail
+from django.http import Http404
+from django.core.validators import EmailValidator
+from django.core.exceptions import ValidationError
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.shortcuts import get_object_or_404
+
 
 
 
@@ -26,6 +36,13 @@ def register(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm = request.POST.get('confirm')
+
+        email_validator = EmailValidator()
+        try:
+            email_validator(email)
+        except ValidationError:
+            return JsonResponse({'success': False, 'error': 'Give a valid Email address'})
+
 
         if password != confirm:
             return JsonResponse({'success': False, 'error': 'Passwords do not match'})
@@ -71,6 +88,18 @@ def home(request):
         return redirect('/home')  # Render the login template for GET request
 
 
+def signout_view(request):
+    logout(request)
+    return redirect('/')  # Redirects to the root URL ("/")
+
+
+def check_auth_status(request):
+    if request.user.is_authenticated:
+        return JsonResponse({'logged_in': True})
+    else:
+        return JsonResponse({'logged_in': False})
+
+
 #JobPost logic goes here
 def Jobp(request):
     if request.method == 'POST':
@@ -86,7 +115,6 @@ def Jobp(request):
         requirement=request.POST.get('requirement')
         email=request.POST.get('email')
         phone=request.POST.get('Phone')
-
 
         job_post=Jobpost(
             company_name=company_name,
@@ -120,7 +148,7 @@ def job_list(request):
             # Convert the string representation of list back to list
             job['skills'] = eval(job['skills'])  # Use eval cautiously; consider safer alternatives
 
-    key_func=lambda job:(job['job_name'].upper(),str(job['skills']).upper(),job['location'].upper()) #sorted by skills and location
+    key_func=lambda job:(job['job_name'].upper(),job['location'].upper(),str(job['skills']).upper()) #sorted by skills and location
 
     timsort(job_list,key_func)
 
@@ -217,6 +245,7 @@ def react_api(request):
 
 def create(request):
     if request.method=='POST':
+        user=request.user
         title=request.POST.get('title')
         company=request.POST.get('company')
         status=request.POST.get('status')
@@ -225,6 +254,7 @@ def create(request):
         note=request.POST.get('note')
 
         track=Tracking.objects.create(
+            user=user,
             title=title,
             company=company,
             status=status,
@@ -241,9 +271,10 @@ def tracking(request):
     return redirect('/tracking')
 
 def tracking_api(request):
-    trace=Tracking.objects.all().values()
-    track=list(trace)
-    return JsonResponse(track,safe=False)
+    if request.user.is_authenticated:
+        trace=Tracking.objects.filter(user=request.user).values()
+        track=list(trace)
+        return JsonResponse(track,safe=False)
 
 
 def track_api(request,id):
@@ -262,8 +293,7 @@ def track_api(request,id):
 
    
     
-def details(request):
-    return redirect('/details')
+
 
 
 
@@ -316,9 +346,49 @@ def edit(request,id):
 def delete(request,id):
         data = Tracking.objects.get(id=id)
         data.delete()
-        
 
-       
+     
+def details(request,id):
+    return redirect('/details')
+    
+def send_application_email(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            email_to = data.get('email')
+            user=request.user
+            job_name = data.get('job_name')
+          
+            
+            
+            subject = f"Application for {job_name}"
+            message = f"""
+            Dear Hiring Team,
+
+            We have received a new job application for the position of '{job_name}' at your company.
+
+            Applicant Details:
+            - Email: {user.username}
+
+            Job Details:
+            - Job Title: {job_name}
+
+            Please contact the applicant through respective applicant email mention above. Thank You!!
+
+            Thank you for considering this application.
+
+            Best regards,
+            The Job Journey Team
+            """
+            from_email = 'anishnepal000@gmail.com'  # Replace with your email
+            
+            send_mail(subject, message, from_email, [email_to])
+            return JsonResponse({'status': 'success'}, status=200)
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
+
+
 
 
 

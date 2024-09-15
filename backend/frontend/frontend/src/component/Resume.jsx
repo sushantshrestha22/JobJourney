@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import Footer from "./footer";
 
 export default function Resume() {
+ 
+
   return (
     <>
       <div className="w-full bg-[#0F172A] ">
@@ -348,7 +350,7 @@ export default function Resume() {
 
             </div>
             <div className="flex justify-end">
-              <button type="submit" className=" text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
+              <button type="submit" className="text-lg rounded mt-3 bg-blue-200 border-none py-2 px-4 text-[#0F172A] font-semibold">
                 Create Resume
               </button>
             </div>

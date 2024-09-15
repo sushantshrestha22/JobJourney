@@ -1,9 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
-// import axios from "axios";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useNavigation } from "react";
+import { Link } from "react-router-dom";
 
-export default function Detail({ company_name, job_name, location, requirement, description, salary, experience_level, skills, language, job_type, email, phone }) {
+export default function Detail({ id, company_name, job_name, location, requirement, description, salary, experience_level, skills, language, job_type, email, phone }) {
   // useEffect(() => {
   //   axios
   //     .get("http://127.0.0.1:8000/api/job/" )
@@ -11,6 +14,26 @@ export default function Detail({ company_name, job_name, location, requirement, 
   //     console.log(res.data)});
 
   // }, []);
+
+  const handleApply = () => {
+    
+
+    axios.post("http://127.0.0.1:8000/api/send-application-email/", {
+      email,
+      
+      job_name
+    })
+      .then(response => {
+        if (response.data.status === 'success') {
+          alert('Email sent successfully!. Further Update will be received through recruiters email. Thank You!!');
+        } else {
+          alert('Failed to send application.');
+        }
+      })
+      .catch(error => {
+        console.error('There was an error sending the application!', error);
+      });
+  };
 
   return (
     <>
@@ -47,12 +70,12 @@ export default function Detail({ company_name, job_name, location, requirement, 
             </div>
             <div className="flex flex-col justify-center ">
               <div className="text-xl font-bold">Skills:</div>
-              {skills.map((data,index)=>{
-                return<>
+              {skills.map((data, index) => {
+                return <>
                   <div className="text-lg"> {data}</div>
                 </>
               })}
-            
+
             </div>
             <div className="flex flex-col justify-center ">
               <div className="text-xl font-bold">Language:</div>
@@ -82,7 +105,9 @@ export default function Detail({ company_name, job_name, location, requirement, 
 
 
         <div className="container flex justify-end mt-[20px]">
-          <button className="btn btn-info text-white">Apply Now</button>
+
+          <button className="btn btn-info text-white" onClick={handleApply}>Apply Now</button>
+
         </div>
 
 
