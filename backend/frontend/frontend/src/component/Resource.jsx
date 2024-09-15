@@ -44,7 +44,6 @@ const Resource = () => {
     setShowAll(true);
     setMyData(false);
     setShow(false);
-    
   }, []);
 
   // useEffect(() => {
@@ -58,7 +57,6 @@ const Resource = () => {
   //   //   console.log(res.data);
   //   // });
   // }, []);
- 
 
   return (
     <div className="bg-[#0F172A]">
@@ -67,11 +65,13 @@ const Resource = () => {
         {array.map((data, index) => {
           return (
             <button
-              className={
-                Click === data.target
-                  ? "btn btn-info text-white"
-                  : "btn btn-secondary text-white"
-              }
+              className={`
+                ${
+                  Click === data.target
+                    ? "btn btn-info text-white"
+                    : "btn btn-secondary text-white"
+                }
+`}
               key={index}
               onClick={() => handleClick(data.target)}
             >
@@ -102,8 +102,10 @@ const Resource = () => {
                       <div className="flex w-[85%] justify-between border-2 items-center my-[10px] ">
                         <div>{data.course}</div>
                         <div>
-                          <button className="btn btn-info text-white"
-                          onClick={() => handleClick(data.target)}>
+                          <button
+                            className="btn btn-info text-white"
+                            onClick={() => handleClick(data.target)}
+                          >
                             Details
                           </button>
                         </div>

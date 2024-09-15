@@ -9,6 +9,77 @@ export default function Create() {
   const [date, setDate] = useState("");
   const [note, setNote] = useState("");
 
+  const [errors, setErrors] = useState({});
+
+  // Validation functions for each field
+  const validateTitle = () => {
+    if (title.trim() === "") {
+      return "Job title is required";
+    } 
+    return ""
+  };
+
+  const validateCompany = () => {
+    if (company.trim() === "") {
+      return "Company name is required";
+    } 
+    return ""
+  };
+
+  const validateStatus = () => {
+    if (status.trim() === "") {
+      return "Status is required";
+    } 
+    return ""
+  };
+
+  const validateDate = () => {
+    if (date.trim() === "") {
+      return "Date is required";
+    }
+    return ""
+  };
+
+  const validatePhone = () => {
+    const phonePattern = /^(97|98)\d{8}$/;
+    if (!contact) {
+      return "Phone number is required.";
+    } else if (!phonePattern.test(contact)) {
+      return "Please enter a valid 10-digit Nepali phone number.";
+    }
+    return "";
+  };
+
+  const validateNote = () => {
+    if (note.trim() === "") {
+      return "Note is required";
+    } 
+    return ""
+  };
+
+  const validateForm = () => {
+    const newErrors = {
+      title: validateTitle(),
+      status: validateStatus(),
+      company: validateCompany(),
+      date: validateDate(),
+      contact: validatePhone(),
+      note: validateNote(),
+    };
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    return Object.values(newErrors).every((error) => error === "");
+  };
+
+  function handelClick(event) {
+    event.preventDefault();
+
+    if (validateForm()) {
+      alert("Successfully submitted and is under review.");
+      event.target.form.submit();
+    }
+  }
   return (
     <div>
       <Navbar />
@@ -36,6 +107,9 @@ export default function Create() {
                 value={title}
                 required
               />
+              {errors.title && (
+                <span className="text-red-500">{errors.title}</span>
+              )}
             </div>
             <div className="mb-3 flex flex-col">
               <label htmlFor="company" className="form-label">
@@ -53,6 +127,9 @@ export default function Create() {
                 value={company}
                 required
               />
+              {errors.company && (
+                <span className="text-red-500">{errors.company}</span>
+              )}
             </div>
             <div className="mb-3 flex flex-col ">
               <label htmlFor="status" className="form-label">
@@ -73,6 +150,9 @@ export default function Create() {
                 <option value="withdrawn">Withdrawn</option>
                 <option value="completed">Completed</option>
               </select>
+              {errors.status && (
+                <span className="text-red-500">{errors.status}</span>
+              )}
             </div>
 
             <div className="mb-3 flex flex-col">
@@ -90,6 +170,9 @@ export default function Create() {
                 value={date}
                 required
               />
+              {errors.date && (
+                <span className="text-red-500">{errors.date}</span>
+              )}
             </div>
             <div className="mb-3 flex flex-col">
               <label htmlFor="contact" className="form-label">
@@ -107,6 +190,9 @@ export default function Create() {
                 value={contact}
                 required
               />
+              {errors.contact && (
+                <span className="text-red-500">{errors.contact}</span>
+              )}
             </div>
             <div className="mb-3 flex flex-col">
               <label htmlFor="note" className="form-label">
@@ -124,13 +210,16 @@ export default function Create() {
                 value={note}
                 required
               />
+              {errors.note && (
+                <span className="text-red-500">{errors.note}</span>
+              )}
             </div>
           </div>
           <div className="container flex justify-end gap-[20px]">
             <Link to="/tracking">
               <button className="btn btn-primary">Back</button>
             </Link>
-            <button type="submit" className="btn btn-success">
+            <button type="submit" onClick={handelClick} className="btn btn-success">
               Create
             </button>
           </div>

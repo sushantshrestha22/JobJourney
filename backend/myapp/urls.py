@@ -26,7 +26,7 @@ urlpatterns = [
     path('create/',views.create,name='create'),
     path('edit/<int:id>',views.edit,name='edit'),
     path('delete/<int:id>',views.delete,name='delete'),
-      path('api/send-application-email/', views.send_application_email, name='send_application_email'),
+    path('api/send-application-email/', views.send_application_email, name='send_application_email'),
 
     
     #  path('api/update-index/', views.update_index, name='update_index'),

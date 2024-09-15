@@ -19,10 +19,11 @@ export default function Update({
   const [date, setDate] = useState(Date);
   const [note, setNote] = useState(Note);
   const [error, setError] = useState(null);
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     axios
       .put(`http://127.0.0.1:8000/edit/${Id}`, {
@@ -41,6 +42,75 @@ export default function Update({
         setError("error")
       )
   };
+
+  // const validateTitle = () => {
+  //   if (title.trim() === "") {
+  //     return "Job title is required";
+  //   } 
+  //   return ""
+  // };
+
+  // const validateCompany = () => {
+  //   if (company.trim() === "") {
+  //     return "Company name is required";
+  //   } 
+  //   return ""
+  // };
+
+  // const validateStatus = () => {
+  //   if (status.trim() === "") {
+  //     return "Status is required";
+  //   } 
+  //   return ""
+  // };
+
+  // const validateDate = () => {
+  //   if (date.trim() === "") {
+  //     return "Date is required";
+  //   }
+  //   return ""
+  // };
+
+  // const validatePhone = () => {
+  //   const phonePattern = /^(97|98)\d{8}$/;
+  //   if (!contact) {
+  //     return "Phone number is required.";
+  //   } else if (!phonePattern.test(contact)) {
+  //     return "Please enter a valid 10-digit Nepali phone number.";
+  //   }
+  //   return "";
+  // };
+
+  // const validateNote = () => {
+  //   if (note.trim() === "") {
+  //     return "Note is required";
+  //   } 
+  //   return ""
+  // };
+
+  // const validateForm = () => {
+  //   const newErrors = {
+  //     title: validateTitle(),
+  //     status: validateStatus(),
+  //     company: validateCompany(),
+  //     date: validateDate(),
+  //     contact: validatePhone(),
+  //     note: validateNote(),
+  //   };
+  //   setErrors(newErrors);
+
+  //   // Check if there are any errors
+  //   return Object.values(newErrors).every((error) => error === "");
+  // };
+
+  // function handelClick(event) {
+  //   event.preventDefault();
+
+  //   if (validateForm()) {
+  //     alert("Successfully submitted and is under review.");
+  //     event.target.form.submit();
+  //   }
+  // }
 
   return (
     <div>
@@ -69,6 +139,9 @@ export default function Update({
                   value={title}
                   required
                 />
+                 {errors.title && (
+                <span className="text-red-500">{errors.title}</span>
+              )}
               </div>
               <div className="mb-3 flex flex-col">
                 <label htmlFor="company" className="form-label">
@@ -84,6 +157,9 @@ export default function Update({
                   value={company}
                   required
                 />
+                 {errors.company && (
+                <span className="text-red-500">{errors.company}</span>
+              )}
               </div>
               
               
@@ -106,6 +182,9 @@ export default function Update({
                 <option value="withdrawn">Withdrawn</option>
                 <option value="completed">Completed</option>
               </select>
+              {errors.status && (
+                <span className="text-red-500">{errors.status}</span>
+              )}
             </div>
               <div className="mb-3 flex flex-col">
                 <label htmlFor="date" className="form-label">
@@ -120,6 +199,9 @@ export default function Update({
                   value={date}
                   required
                 />
+                 {errors.date && (
+                <span className="text-red-500">{errors.date}</span>
+              )}
               </div>
               <div className="mb-3 flex flex-col">
                 <label htmlFor="contact" className="form-label">
@@ -135,6 +217,9 @@ export default function Update({
                   value={contact}
                   required
                 />
+                 {errors.contact && (
+                <span className="text-red-500">{errors.contact}</span>
+              )}
               </div>
               <div className="mb-3 flex flex-col">
                 <label htmlFor="note" className="form-label">
@@ -150,6 +235,9 @@ export default function Update({
                   value={note}
                   required
                 />
+                 {errors.note && (
+                <span className="text-red-500">{errors.note}</span>
+              )}
               </div>
             </div>
             {error && <p className="text-red-500">{error}</p>}
@@ -157,7 +245,8 @@ export default function Update({
               <Link to="/tracking">
                 <button type="button" className="btn btn-primary">Back</button>
               </Link>
-              <button type="submit" className="btn btn-success">
+              <button type="submit"  className="btn btn-success">
+              {/* onClick={handelClick} */}
                 Update
               </button>
             </div>
