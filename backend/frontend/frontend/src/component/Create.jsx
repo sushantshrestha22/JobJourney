@@ -144,7 +144,7 @@ export default function Create() {
                 }}
                 value={status}
               >
-                <option value="part-time">Applied</option>
+                <option value="applied">Applied</option>
                 <option value="interview schedule">Interview Schedule</option>
                 <option value="pending">Pending</option>
                 <option value="withdrawn">Withdrawn</option>

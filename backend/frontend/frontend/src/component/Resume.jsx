@@ -232,6 +232,10 @@ export default function Resume() {
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                     placeholder="Enter your location"
                     required
+                    value={location}
+                    onChange={(e) => {
+                      setLocation(e.target.value);
+                    }}
                   />
                   {errors.location && <span className="text-red-500">{errors.location}</span>}
                 </div>
@@ -295,6 +299,10 @@ export default function Resume() {
                     className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 rounded outline-none"
                     placeholder="only 150 characters"
                     required
+                    value={description}
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
                   />
                     {errors.description && <span className="text-red-500">{errors.description}</span>}
                 </div>
@@ -338,6 +346,10 @@ export default function Resume() {
                         className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
                         name="institution"
                         required
+                        value={institution}
+                        onChange={(e) => {
+                          setInstitution(e.target.value);
+                        }}
                       />
                        {errors.institution && <span className="text-red-500">{errors.institution}</span>}
                     </div>
@@ -349,6 +361,10 @@ export default function Resume() {
                         className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
                         name="degree"
                         required
+                        value={degree}
+                        onChange={(e) => {
+                          setDegree(e.target.value);
+                        }}
                       />
                       {errors.degree && <span className="text-red-500">{errors.degree}</span>}
                     </div>
@@ -395,6 +411,10 @@ export default function Resume() {
                         className="bg-white border-[#0F172A] border-2 text-[#0F172A] py-2 px-4 w-[100%] rounded outline-none"
                         name="company"
                         required
+                        value={company}
+                        onChange={(e) => {
+                          setCompany(e.target.value);
+                        }}
                       />
                     </div>
                     <div className="w-100 text-[#0F172A] text-xl  font-semibold flex flex-col gap-3">
